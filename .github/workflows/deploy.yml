@@ -1,0 +1,28 @@
+name: BlogCI
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Download Source file
+      uses: actions/checkout@main
+      # with:
+      #   ref: source # Specify the name of the branch where you store Hexo source files
+    - name: Prepare Node env
+      uses: actions/setup-node@main
+      with:
+        node-version: "20.x" # This corresponds to your own nodejs version (10.12 tested well)
+    - name: Set Env
+      env: 
+        TOKEN: ${{ secrets.TOKEN }}  
+      run: |
+        git config --global user.name 'Jianliang-Shen'
+        git config --global user.email '2823626197@qq.com'
+        sed -i "s/TOKEN/$TOKEN/g" ./_config.yml
+    - name: Hexo
+      run: |
+        npm install hexo -g
+        rm -rf node_modules && npm install --force
+        hexo clean && hexo g && hexo d
