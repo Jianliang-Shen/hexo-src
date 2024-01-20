@@ -5,7 +5,7 @@ tags:
     - Security
     - 嵌入式
 categories: 
-    - 操作系统
+    - TF-M
 ---
 
 回到问题之初，TF-M是怎么进入secure端的，在LIB model的时候，曾有过一个SG命令，看看其他模式怎么进入的。

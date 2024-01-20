@@ -1,40 +1,51 @@
 ---
 title: R329模型仿真测试
 date: 2021-07-15 22:07:29
+tags:
     - linux
     - 算法
 categories: 
     - 边缘计算
 ---
 
-# Docker安装及使用
+## Docker安装及使用
 
 参考这个帖子安装docker[在Ubuntu中安装Docker和docker的使用](https://www.cnblogs.com/blog-rui/p/11244023.html)
 安装完毕后拉取环境并启动
 
 <!-- more -->  
+
 ```bash
 sudo docker pull zepan/zhouyi
 sudo docker run -i -t zepan/zhouyi  /bin/bash
 ```
-## 运行中保存
+
+### 运行中保存
+
 ```bash
 docker ps
 docker commit b4c875ede137 zepan/zhouyi
 ```
-## 传递文件
+
+### 传递文件
+
 ```bash
 docker cp [DOCKER ID]:[path] [path]
 docker cp [path] [DOCKER ID]:[path]
 ```
-# 模型处理
+
+## 模型处理
+
 模型下载：[Github](https://github.com/tensorflow/models/tree/master/research/slim#pre-trained-models)
 这里下载vgg_16_2016_08_28.tar.gz
+
 ```bash
 tar xvf vgg_16_2016_08_28.tar.gz
 vgg_16.ckpt
 ```
-## 导出图
+
+### 导出图
+
 ```bash
 git clone git@github.com:tensorflow/models.git
 cd models/research/slim
@@ -46,8 +57,11 @@ python3 export_inference_graph.py \
         --labels_offset=1 \
         --output_file=/root/test/vgg/model/vgg.pb
 ```
-## 冻结
+
+### 冻结
+
 下载1.15的tensorflow
+
 ```bash
 git clone -b r1.15 --single-branch https://github.com/tensorflow/tensorflow.git
 cd tensorflow/tensorflow/python/tools
@@ -58,9 +72,13 @@ python3 freeze_graph.py \
             --output_node_names=vgg_16/fc8/BiasAdd \
             --output_graph=/root/test/vgg/model/vgg_frozen.pb
 ```
+
 其中vgg_16/fc8/BiasAdd通过将vgg.pb上传至[Netron](https://netron.app/)网站查看。vgg_frozen.pb存放在工程model路径下。
-# 准备数据集
+
+## 准备数据集
+
 下载ILSVRC2012，通过脚本生成numpy格式的文件
+
 ```python
 import tensorflow as tf
 import numpy as np
@@ -217,10 +235,13 @@ np.save('dataset.npy', images)
 labels = np.array(label_list)
 np.save('label.npy', labels)
 ```
+
 label.npy和dataset.npy存放在dataset路径下。
 
-# 仿真配置文件
+## 仿真配置文件
+
 编写run.cfg
+
 ```python
 [Common]
 mode=run
@@ -253,7 +274,9 @@ outputs=output_vgg.bin
 profile= True
 target=Z1_0701
 ```
+
 Input.bin文件可以在/root/demos/tflite/model下找到。开始仿真
+
 ```bash
 aipubuild run.cfg
 [I]     step1: get max/min statistic value DONE
@@ -329,8 +352,11 @@ aipu_simulator_z1 /tmp/temp_c68782b79b33b6f5c74dd8da6592.cfg
 [I] [main.cpp  : 135] Simulator finished.
 Total errors: 0,  warnings: 0
 ```
-# 测试
+
+## 测试
+
 通过quant_predict.py脚本进行测试：
+
 ```python
 from PIL import Image
 import cv2
@@ -370,8 +396,10 @@ image = np.reshape(image, (224, 224, 3))
 im = Image.fromarray(image)
 im.save('result.jpeg')
 ```
+
 其中output_ref.bin、imagenet_classes.py可以在/root/demos/tflite下找到。运行结果：
-```
+
+```bash
 python3 quant_predict.py
 predict first 5 label:
     index  230, prob 116, name: Old English sheepdog, bobtail
@@ -386,4 +414,5 @@ true first 5 label:
     index  170, prob  40, name: borzoi, Russian wolfhound
     index  161, prob  39, name: Afghan hound, Afghan
 ```
+
 可以看到正确预测了图片231。文件见[AIPU-Zhouyi-VGG-1](https://github.com/sjl3110/AIPU-Zhouyi-VGG-16)

@@ -28,25 +28,37 @@ TI中文社区：[e2echina.ti](https://e2echina.ti.com/)
 - [编译模块](#编译模块)
   
 ## 内核编译
+
 ### 命令
+
 ``` s
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- tisdk_am57xx-evm-rt_defconfig 
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- zImage -j16
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- distclean
 ```
+
 生成的zImage替换/rootfs/boot下的zImage文件。
+
 ### 内核源码
+
 ### 内核功能裁剪思路
+
 ## 设备树改写
+
 ### 命令
+
 ``` s
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- am57xx-evm-reva3.dtb -j8
 ```
+
 源码位置：$tisdk/arch/arm/boot/dts/am57xx-beagle-x15-common.dtsi等。生成的am57xx-evm-reva3.dtb替换/rootfs/boot下的设备树文件。  
+
 ## 编译模块
+
 ``` s
 make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- modules -j16
 sudo make ARCH=arm INSTALL_MOD_PATH=../rootfs modules_install
 ```
+
 模块的版本要与内核一致，所以要编译模块。加载模块指令：insmod。卸载模块指令。

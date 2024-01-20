@@ -13,11 +13,12 @@ categories:
 <!-- more -->
 
 ## 安装腾讯ncnn
+
 参考：https://github.com/Tencent/ncnn/wiki/how-to-build#build-for-macos
 
 安装完成后，在bashrc导入：
 
-```
+```bash
 # ncnn_install
 PATH="/Users/sjl/learn/ncnn/build/install/bin":"$PATH"
 PATH="/Users/sjl/learn/ncnn/build/examples":"$PATH"
@@ -25,19 +26,21 @@ PATH="/Users/sjl/learn/ncnn/build/examples":"$PATH"
 
 下载model，建议压缩包
 
-```
+```bash
 git clone git@github.com:nihui/ncnn-assets.git
 ```
 
 到models路径下
 
-```
+```bash
 yolov3 test.jpeg
 ```
 
 ## 安装opencv
+
 下载安装包
-```
+
+```bash
 cd opencv-3.4.16
 mkdir build
 cd build

@@ -9,7 +9,8 @@ categories:
     - 嵌入式
 ---
 
-简单的服务器完成以下功能：  
+简单的服务器完成以下功能:
+
 1. 与客户端创建连接建立握手  
 2. 转发客户端的消息，发向指定客户端  
 3. 完成客户端喂狗信号的处理  
@@ -44,79 +45,92 @@ categories:
 - [代码](#代码)
   
 ## 库函数  
+
 ### socket  
+
 参考：[socket编程以及select、epoll、poll示例详解](https://blog.csdn.net/jyy305/article/details/73012706)  
 socket这个词可以表示很多概念，在TCP/IP协议中“IP地址+TCP或UDP端口号”唯一标识网络通讯中的一个进程，“IP+端口号”就称为socket。在TCP协议中，建立连接的两个进程各自有一个socket来标识，那么两个socket组成的socket pair就唯一标识一个连接。  
 > **网络字节序**：内存中多字节数据相对于内存地址有大端小端之分，磁盘文件中的多字节数据相对于文件中的偏移地址也有大端小端之分。网络数据流同样有大端小端之分，所以发送主机通常将发送缓冲区中的数据按内存地址从低到高的顺序发出，接收主机把从网络上接收到的字节按内存从低到高的顺序保存，因此网络数据流的地址应该规定：`先发出的数据是低地址，后发出的数据是高地址`。TCP/IP协议规定网络数据流应该采用大端字节序，即低地址高字节。所以发送主机和接收主机是小段字节序的在发送和接收之前需要做字节序的转换。  
+>
 #### tcpsocket 实现
+
 实现模型：
+
 1. **服务器端**： socket -> bind -> listen -> accept(阻塞,三次握手)-> send。  
 2. **客户端**： socket -> connect(阻塞,三次握手)-> recv。  
   
 #### socket()
+
 ```C
 int socket(int family, int type, int protocol)
 ```
   
-* **family**：指定协议的类型本次选择AF_INET（IPv4协议）；   
-* **type**：网络数据类型，TCP是面向字节流的—SOCK_STREAM；   
-* **protocol**：前两个参数一般确定了协议类型通常传0；   
-* **返回值**：成功返回套接字符；失败返回-1设置相关错误码。   
+- **family**：指定协议的类型本次选择AF_INET（IPv4协议）；
+- **type**：网络数据类型，TCP是面向字节流的—SOCK_STREAM；
+- **protocol**：前两个参数一般确定了协议类型通常传0；
+- **返回值**：成功返回套接字符；失败返回-1设置相关错误码。
   
 #### bind()
+
 ```C
 int bind(int sockfd, const struct sockaddr *servaddr, socklen_t addrlen)
 ```
   
-* **sockfd**：socket函数成功时候返回的套接字描述符；  
-* **servaddr**：服务器的IP和端口；  
-* **addrlen**： 长度（sizeof(servaddr)）；  
-* **返回值**：成功返回0；失败返回-1，并设置相关错误码。  
+- **sockfd**：socket函数成功时候返回的套接字描述符；  
+- **servaddr**：服务器的IP和端口；  
+- **addrlen**： 长度（sizeof(servaddr)）；  
+- **返回值**：成功返回0；失败返回-1，并设置相关错误码。  
   
 #### listen()
+
 ```C
 int listen(int sockfd, int backlog)
 ```
   
-* **sockfd**：socket函数成功时候返回的套接字描述符；  
-* **backlog**：内核中套接字排队的最大个数；  
-* **返回值**：成功返回0；失败返回-1，并设置相关错误码。  
+- **sockfd**：socket函数成功时候返回的套接字描述符；  
+- **backlog**：内核中套接字排队的最大个数；  
+- **返回值**：成功返回0；失败返回-1，并设置相关错误码。  
   
 #### accept()
+
 ```C
 int accept(int sockfd, const struct sockaddr *servaddr, socklen_t *addrlen)
 ```
   
-* **sockfd**：socket函数成功时候返回的套接字描述符；
-* **servaddr**：输出型参数，客户端的ip和端口；
-* **addrlen**：长度（sizeof(servaddr)）；
-* **返回值**：成功:从监听套接字返回已连接套接字；失败返回-1，并设置相关错误码。
+- **sockfd**：socket函数成功时候返回的套接字描述符；
+- **servaddr**：输出型参数，客户端的ip和端口；
+- **addrlen**：长度（sizeof(servaddr)）；
+- **返回值**：成功:从监听套接字返回已连接套接字；失败返回-1，并设置相关错误码。
   
 #### connect()
+
 ```C
 int connect(int sockfd, const struct sockaddr *servaddr, socklen_t addrlen)
 ```
   
-* **sockfd**：函数返回的套接字描述符；
-* **servaddr**：服务器的IP和端口；
-* **addrlen**：长度（sizeof(servaddr)）；
-* **返回值**：成功返回0；失败返回-1，并设置相关错误码
+- **sockfd**：函数返回的套接字描述符；
+- **servaddr**：服务器的IP和端口；
+- **addrlen**：长度（sizeof(servaddr)）；
+- **返回值**：成功返回0；失败返回-1，并设置相关错误码
   
 #### send()和recv()
+
 * [**Socket中send()函数和recv()函数详解**](https://blog.csdn.net/ly0303521/article/details/52290217)  
-* [**常用socket函数详解**](https://blog.csdn.net/G_BrightBoy/article/details/12854117)  
+- [**常用socket函数详解**](https://blog.csdn.net/G_BrightBoy/article/details/12854117)  
 
 ### select()
+
 ```C
 int select(int maxfdp,fd_set *readfds,fd_set *writefds,fd_set *errorfds,struct timeval *timeout);
 ```
   
-* **maxfdp**: 需要监视的最大文件描述符加1；  
-* **readfds**、**writefds**、**errorfds**：分别对应于需要检测的可读文件描述符的集合，可写文件描述符的集合及异常文件描述符的集合；  
-* **timeout**：等待时间，这个时间内，需要监视的描述符没有事件，timeout == NULL表示等待无限时长；  
-* **返回值**：发⽣生则函数返回，返回值为0。设为NULL 表示阻塞式等待，一直等到有事件就绪，函数才会返回，0表示非阻塞式等待，没有事件就立即返回，大于0表示等待的时间。大于0表示就绪时间的个数，等于0表示timeout等待时间到了，小于0表示调用失败。  
+- **maxfdp**: 需要监视的最大文件描述符加1；  
+- **readfds**、**writefds**、**errorfds**：分别对应于需要检测的可读文件描述符的集合，可写文件描述符的集合及异常文件描述符的集合；  
+- **timeout**：等待时间，这个时间内，需要监视的描述符没有事件，timeout == NULL表示等待无限时长；  
+- **返回值**：发⽣生则函数返回，返回值为0。设为NULL 表示阻塞式等待，一直等到有事件就绪，函数才会返回，0表示非阻塞式等待，没有事件就立即返回，大于0表示等待的时间。大于0表示就绪时间的个数，等于0表示timeout等待时间到了，小于0表示调用失败。  
   
 #### select()相关API
+
 ```C
 //延时结构体
 struct timeval
@@ -131,8 +145,11 @@ int FD_CLR(int fd, fd_set *fdset);  //清除某个位时可以使用
 int FD_SET(int fd, fd_set *fd_set);   //设置变量的某个位置位
 int FD_ISSET(int fd, fd_set *fdset); //测试某个位是否被置位
 ```
+
 #### 使用范例  
+
 当声明了一个文件描述符集后，必须用FD_ZERO将所有位置零。之后将我们所感兴趣的描述符所对应的位置位，操作如下：
+
 ```C
 fd_set rset;   
 int fd;   
@@ -150,8 +167,10 @@ if(FD_ISSET(fd, &rset)
 ```
   
 #### 深入理解select
+
 从流程上来看，使用select函数进行IO请求和同步阻塞模型没有太大的区别，甚至还多了添加监视socket，以及调用select函数的额外操作，效率更差。**但是，使用select以后最大的优势是用户可以在一个线程内同时处理多个socket的IO请求。用户可以注册多个socket，然后不断地调用select读取被激活的socket，即可达到在同一个线程内同时处理多个IO请求的目的。**而在同步阻塞模型中，必须通过多线程的方式才能达到这个目的。  
 理解select模型的关键在于理解fd_set,为说明方便，取fd_set长度为1字节，fd_set中的每一bit可以对应一个文件描述符fd。则1字节长的fd_set最大可以对应8个fd。  
+
 1. 执行fd_set set; FD_ZERO(&set); 则set用位表示是0000,0000。
 2. 若fd＝5,执行FD_SET(fd,&set);后set变为0001,0000(第5位置为1)
 3. 若再加入fd＝2，fd=1,则set变为0001,0011
@@ -159,6 +178,7 @@ if(FD_ISSET(fd, &rset)
 5. 若fd=1,fd=2上都发生可读事件，则select返回，此时set变为0000,0011。**注意：没有事件发生的fd=5被清空。**  
   
 基于上面的讨论，可以轻松得出select模型的特点：  
+
 1. 可监控的文件描述符个数取决与sizeof(fd_set)的值。我这边服务器上sizeof(fd_set)＝512，每bit表示一个文件描述符，则我服务器上支持的最大文件描述符是512*8=4096。据说可调，另有说虽然可调，但调整上限受于编译内核时的变量值。
 2. 将fd加入select监控集的同时，还要再使用一个数据结构array保存放到select监控集中的fd，一是用于再select返回后，array作为源数据和fd_set进行FD_ISSET判断。二是select返回后会把以前加入的但并无事件发生的fd清空，则每次开始select前都要重新从array取得fd逐一加入（FD_ZERO最先），扫描array的同时取得fd最大值maxfd，用于select的第一个参数。
 3. 可见select模型必须在select前循环加fd，取maxfd，select返回后利用FD_ISSET判断是否有事件发生。  
@@ -166,36 +186,46 @@ if(FD_ISSET(fd, &rset)
 > 注意：select在设置定时时，检测系统调用中的`SIGALARM`信号，会与其他的定时函数，例如alarm()、settimer()等函数。
   
 #### select的优缺点
-* **优点：**   
+
+- **优点：**
+
 1. select的可移植性好，在某些unix下不支持poll.  
 2. select对超时值提供了很好的精度，精确到微秒，而poll式毫秒。  
-* **缺点：**    
+
+* **缺点：**
+
 1. 单个进程可监视的fd数量被限制，默认是1024。  
 2. 需要维护一个用来存放大量fd的数据结构，这样会使得用户空间和内核空间在传递该结构时复制开销大。  
 3. 对fd进行扫描时是线性扫描，fd剧增后，IO效率降低，每次调用都对fd进行线性扫描遍历，随着fd的增加会造成遍历速度慢的问题。  
 4. select函数超时参数在返回时也是未定义的，考虑到可移植性，每次超时之后进入下一个select之前都要重新设置超时参数。  
   
 ### pthread_create()
+
 #### 线程
+
 1. 是操作系统能够进行调度的最小单位；  
 2. 线程被包含在进程之中，是进程中的实际运作单位；  
 3. 一个线程指的是进程中一个单一顺序的控制流；  
 4. 一个进程可以并发多个线程，每个线程执行不同的任务。  
   
-> * **优点**  
+> - **优点**  
+>
 > 1. 创建一个新的线程的代价要比创建一个新进程的代价小得多；
 > 2. 与进程之间的切换相比，线程之间的切换需要操作系统做的工作要少很多；
 > 3. 线程占有的资源要比进程少；
 > 4. 线程之间共享数据更容易（线程是在一个房间中，所以相互通信比较容易，而进程之间通话需要跑到另一个房间）。
-  
-> * **缺点**  
+>
+> - **缺点**  
+>
 > 1. 编码/调试难度提高，因为线程之间谁先执行不确定，在一个是共享资源的问题。  
 > 2. 缺乏访问控制，一个线程崩溃，会导致整个进程都异常终止，一个线程中调用某些函数，会影响整个进程。  
+>
 #### 线程与进程  
+
 1. 进程：进程（或者任务）是资源分配的基本单位  
 2. 线程：线程（或者轻量级进程）是调度/执行的基本单位  
 3. 线程运行在进程中  
-4. 一个进程至少都有一个线程   
+4. 一个进程至少都有一个线程
   
 > 注：参考阮一峰的博客[**进程与线程的一个简单解释**](http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html)
   
@@ -208,6 +238,7 @@ if(FD_ISSET(fd, &rset)
 | abort   | pthread_cancel | 使指定的控制流异常退出               |
   
 #### 线程创建与使用
+
 ```C
 #include <pthread.h>
 void * thread_test(void *arg)
@@ -231,6 +262,7 @@ int main()
 ```
   
 #### 线程传参
+
 ```C
 //存储客户端sock_cli的结构体
 typedef struct
@@ -257,6 +289,7 @@ int main()
 ```
   
 #### 线程局部变量  
+
 当一个线程多次创建时，线程内定义的变量需要设置为局部变量，一种利用键值的demo如下：  
 <details>
 <summary>局部变量</summary>  
@@ -299,9 +332,11 @@ int main()
     pthread_key_delete(key_buffer); //销毁键值
 }
 ```
+
 </details>  
   
 #### 线程编译
+
 ``` bash
 gcc -o pthread -lpthread pthread.c  #-lpthread调用libpthread库 
 ```
@@ -310,7 +345,9 @@ gcc -o pthread -lpthread pthread.c  #-lpthread调用libpthread库
 # cmake中添加链接库
 LINK_LIBRARIES(pthread)     #添加链接库，gcc里面需要添加 -lpthread
 ```
+
 ## 方案选择
+
 实现服务器架构，综上而言，客户端较少的情况下，使用select查找法更为容易，对内存的开销较小，但是当客户端增加后服务器处理客户端消息的实时性将大打折扣。  
   
 使用多进程的方式，服务端的子进程之间还需要建立通信，相对而言使用多线程更为容易，且多线程一样具有多进程的实时性。多线程开发中要注意变量的读写，如果变量比较重要且均在线程内，应当设置为局部变量。当然，变量作为全局变量，可以允许各线程加以修改，但一定要解决同步问题。对于单核的处理器而言，每个时间片只运行一个进程的一个线程的一部分，因此微观上，各线程读或者写的顺序是无法控制的，可能会出现读的线程发生在写之前，读到了旧值，这个问题需要非常重视。一个可以反映出问题的demo如下：
@@ -358,6 +395,7 @@ int main(int argc, char const *argv[])
 参考：[linux多线程-互斥&条件变量与同步](https://www.cnblogs.com/lang5230/p/5686868.html)。
 
 ## 自定义函数及功能  
+
 <details>
 <summary>socket.c</summary>  
 
@@ -709,12 +747,14 @@ int send_wdt(int sock, char *source_name)
 </details>  
 
 ### 运行框图
+
 服务端  
 ![](/img/post_pics/tcpip/服务器软件框图.bmp)
 客户端  
 ![](/img/post_pics/tcpip/客户端软件框图.bmp)
 
 ## 守护脚本
+
 守护脚本的功能是，当检测到某进程不存在是，立即重启该进程，对应着服务器检测到某个进程不喂狗时立即杀死该进程。两者想结合完成对客户端及服务器端的保护。守护进程中用shell语言编写了protect函数，输入参数为`$1`，即进程名。启动守护脚本后，将分先后运行服务器和客户端可执行文件并运行在后台，再在主循环中轮询守护对应的进程。
 <details>
 <summary>main.sh</summary>  
@@ -760,7 +800,9 @@ exit 0
 </details>  
 
 ## 实现结果
+
 ![](/img/post_pics/tcpip/socket服务器运行结果.JPG)
+
 ```
 [client1] Creating recv thread...                                   #客户端建立接收线程
 [client2] Creating recv thread...
@@ -774,6 +816,7 @@ exit 0
 ```
 
 ## 代码
+
 <details>
 <summary>server.c</summary>  
 
@@ -952,7 +995,7 @@ int main(int argc, char *argv[])
 }
 ```
 
-</details> 
+</details>
   
 <details>
 <summary>client1.c</summary>  

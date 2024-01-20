@@ -10,9 +10,7 @@ categories:
 ---
 记录华为云的上云操作及OBS对象上传文件等操作，大部分操作在WSL Ubuntu中完成，与树莓派环境基本一致。
 
-
 <!-- more -->  
-
 
 - [linux操作系统连接华为云](#linux操作系统连接华为云)
 	- [上传TOPIC](#上传topic)
@@ -29,47 +27,58 @@ categories:
 	- [推流实现](#推流实现)
 	- [~~安装opencv指北~~](#安装opencv指北)
 
-  
-  
 ## linux操作系统连接华为云
+
 参考这篇文档：[Linux配置上云环境及demo](https://support.huaweicloud.com/devg-iothub/iot_02_2131.html)
+
 ### 上传TOPIC
+
 ```c
-	/*
-	Topic: $oc/devices/{device_id}/sys/messages/up  
-	数据格式：
-	{
-		"object_device_id": "{object_device_id}",
-		"name": "name",
-		"id": "id",
-		"content": "hello"
-	}
-	"{\"object_device_id\": \"{object_device_id}\",\"name\": \"name\",\"id\": \"id\",\"content\": \"hello\"}"
-	*/
-	payload = "{\"object_device_id\": \"5ed4fd4c41f4fc02c74fdd27_0\",\"name\": \"massage_test\",\"id\": \"0xffffff\",\"content\": \"Hello, Huawei Yun\"}";
-	char *cmd_topic = combine_strings(3, "$oc/devices/", username, "/sys/messages/up");
-	// ret = mqtt_subscribe(cmd_topic);
-	ret = mqtt_publish(cmd_topic, payload);
-	free(cmd_topic);
-	cmd_topic = NULL;
-	if (ret < 0)
-	{
-		printf("subscribe topic error, result %d\n", ret);
-	}
+ /*
+ Topic: $oc/devices/{device_id}/sys/messages/up  
+ 数据格式：
+ {
+  "object_device_id": "{object_device_id}",
+  "name": "name",
+  "id": "id",
+  "content": "hello"
+ }
+ "{\"object_device_id\": \"{object_device_id}\",\"name\": \"name\",\"id\": \"id\",\"content\": \"hello\"}"
+ */
+ payload = "{\"object_device_id\": \"5ed4fd4c41f4fc02c74fdd27_0\",\"name\": \"massage_test\",\"id\": \"0xffffff\",\"content\": \"Hello, Huawei Yun\"}";
+ char *cmd_topic = combine_strings(3, "$oc/devices/", username, "/sys/messages/up");
+ // ret = mqtt_subscribe(cmd_topic);
+ ret = mqtt_publish(cmd_topic, payload);
+ free(cmd_topic);
+ cmd_topic = NULL;
+ if (ret < 0)
+ {
+  printf("subscribe topic error, result %d\n", ret);
+ }
 ```
+
 ### 接收云端下发的命令
+
 首先在`产品->功能定义->添加命令`中设置一个命令，再在`设备->所有设备->设备详情->命令->命令下发`中发送命令。
+
 ### BUG
-* 树莓派上传属性有时间无法读取bug
-* 数据解析有问题
+
+- 树莓派上传属性有时间无法读取bug
+
+- 数据解析有问题
   
 ## OBS对象创建
+
 ### Windows安装OBS Browser+
+
 在使用OBS前，首先申请一个捅，并在[查看密钥](https://console.huaweicloud.com/iam/?region=cn-east-3#/mine/accessKey)这里申请访问的AK和SK以便之后登陆使用。[下载](https://support.huaweicloud.com/browsertg-obs/obs_03_1003.html)安装，登陆时账号可以任意配置，填上AK和SK即可。
 ![](/img/post_pics/huawei_yun/login.png)
+
 ### linux安装obsutil
+
 下载和初始化配置参考：[初始化配置](https://support.huaweicloud.com/utiltg-obs/obs_11_0005.html)
 以本人创建的sjlbowl为例，主要运行步骤：
+
 ```bash
 ➜  Huawei_cloud_demo tar xvf obsutil_linux_amd64.tar.gz
 obsutil_linux_amd64_3.1.15/
@@ -125,7 +134,9 @@ Upload successfully, 33B, n/a, /mnt/f/Huawei_cloud_demo/obsutil_linux_amd64_3.1.
 ```
 
 ### 树莓派安装obsutil环境
+
 需要安装golang环境及编译obsutil文件：
+
 ```bash
 git clone https://github.com/huaweicloud/huaweicloud-obs-obsutil.git    # 下载源码
 cd huaweicloud-obs-obsutil/
@@ -142,11 +153,15 @@ go run obsutil                                                          # 生成
 ./obsutil ls obs://my-bucket-input -s
 ./obsutil cp ../../face_from_raspberry.jpg obs://my-bucket-input        # 上传文件
 ```
+
 ## 树莓派传输视频流
+
 ### 硬件连接
+
 红外摄像头：
 ![](/img/post_pics/huawei_yun/hardware.jpg)
 更新Picamera驱动并使用下面文件测试：
+
 ```py
 from picamera import PiCamera
 from time import sleep
@@ -172,13 +187,19 @@ take_photo()  # 拍一次
 ```
 
 ### 云端设置RTMP推流地址
+
 打开控制台，搜索视频接入服务，开通后创建RTMP视频流，激活后可以查看到RTMP推流地址：
+
 ```bash
 rtmp://121.36.222.36:25021/vis/raspberry
 ```
+
 参考：[创建RTMP视频流](https://support.huaweicloud.com/usermanual-vis/vis_02_0012.html)
+
 ### 树莓派安装ffmpeg和nginx工具
+
 安装ffmpeg：
+
 ```bash
 sudo apt-get update
 sudo apt-get install libx264-dev
@@ -188,7 +209,9 @@ cd ffmpeg-4.1/
 sudo ./configure --prefix=/opt/ffmpeg --enable-shared --enable-pthreads --enable-gpl  --enable-avresample --enable-libx264 --disable-yasm
 sudo make && sudo make install
 ```
+
 安装和配置nginx：
+
 ```bash
 # 下载解压nginx-rtmp-module模块
 cd ~
@@ -215,15 +238,17 @@ sudo ln -s /opt/openresty/nginx/sbin/nginx /usr/sbin/nginx
 sudo vim /opt/openresty/nginx/conf/nginx.conf    
 # 添加：
 rtmp {
-	server {
-		listen 1935;
-		application videotest{
-			live on;
-		}
-	}
+ server {
+  listen 1935;
+  application videotest{
+   live on;
+  }
+ }
 }
 ```
+
 ### 推流实现
+
 ```bash
 # 命令：
 raspivid -w 640 -h 480 -b 15000000 -t 0 -a 12 -a 1024 -a "CAM-1 %Y-%m-%d %X" -ae 18,0xff,0x808000 -o - | ffmpeg -re -i - -s 640x480 -vcodec copy -acodec copy -b:v 800k -b:a 32k -f flv rtmp://121.36.222.36:25021/vis/raspberry
@@ -246,11 +271,14 @@ Stream mapping:
 frame= 2154 fps= 25 q=-1.0 Lsize=   18220kB time=00:01:26.12 bitrate=1733.1kbits/s speed=   1x    
 video:18178kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: 0.232961%
 ```
+
 实际测试延迟在15s-20s之间（4G热点网络）：  
 ![](/img/post_pics/huawei_yun/html.PNG)
 
 参考：[【树莓派】ffmpeg + nginx 推 rtmp 视频流实现远程监控](https://blog.csdn.net/weixin_42534940/article/details/89302092)
+
 ### ~~安装opencv指北~~
+
 ~~本来打算用opencv做视频流，发现树莓派开启cv后就很卡，遂放弃，但安装opencv的痛苦历程值得记录，不过只要参考下面两个就够了，如果遇到头文件错误就复制一下改路径，如果遇到make -j4卡死到99%，切换成make就行，并提高swap的交换分区大小，缺少bmi类型文件去网上搜一下就行，这些困难不是大事，等cpu编译完才是望眼欲穿。~~
 
 [~~树莓派3B/3B+和4B安装OpenCV教程 (详细教程)~~](https://www.cnblogs.com/gghy/p/11916830.html)
