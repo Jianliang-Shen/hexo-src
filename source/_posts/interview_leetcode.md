@@ -37,6 +37,8 @@ Leetcode题解汇总。统计到`NO.500`。
   - [39. 组合总和](#39-组合总和)
   - [40. 组合总和 II](#40-组合总和-ii)
   - [46. 全排列](#46-全排列)
+  - [77. 组合](#77-组合)
+  - [78. 子集](#78-子集)
   - [130. 被围绕的区域](#130-被围绕的区域)
   - [200. 岛屿数量](#200-岛屿数量)
   - [207. 课程表](#207-课程表)
@@ -52,6 +54,11 @@ Leetcode题解汇总。统计到`NO.500`。
   - [64. 最小路径和](#64-最小路径和)
   - [72. 编辑距离](#72-编辑距离)
   - [79. 单词搜索](#79-单词搜索)
+  - [122. 买卖股票的最佳时机 II](#122-买卖股票的最佳时机-ii)
+  - [123. 买卖股票的最佳时机 III](#123-买卖股票的最佳时机-iii)
+  - [188. 买卖股票的最佳时机 IV](#188-买卖股票的最佳时机-iv)
+  - [309. 买卖股票的最佳时机含冷冻期](#309-买卖股票的最佳时机含冷冻期)
+  - [714. 买卖股票的最佳时机含手续费](#714-买卖股票的最佳时机含手续费)
   - [198. 打家劫舍](#198-打家劫舍)
   - [213. 打家劫舍 II](#213-打家劫舍-ii)
   - [221. 最大正方形](#221-最大正方形)
@@ -88,6 +95,7 @@ Leetcode题解汇总。统计到`NO.500`。
 - [数学](#数学)
   - [50. Pow(x, n)](#50-powx-n)
   - [136. 只出现一次的数字](#136-只出现一次的数字)
+  - [172. 阶乘后的零](#172-阶乘后的零)
   - [365. 水壶问题](#365-水壶问题)
   - [461. 汉明距离](#461-汉明距离)
 - [数组](#数组)
@@ -99,6 +107,7 @@ Leetcode题解汇总。统计到`NO.500`。
   - [209. 长度最小的子数组](#209-长度最小的子数组)
 - [栈](#栈)
   - [20. 有效的括号](#20-有效的括号)
+  - [232. 用栈实现队列](#232-用栈实现队列)
 - [双指针](#双指针)
   - [11. 盛最多水的容器](#11-盛最多水的容器)
   - [26. 删除有序数组中的重复项](#26-删除有序数组中的重复项)
@@ -107,17 +116,21 @@ Leetcode题解汇总。统计到`NO.500`。
   - [42. 接雨水](#42-接雨水)
   - [75. 颜色分类](#75-颜色分类)
   - [80. 删除有序数组中的重复项 II](#80-删除有序数组中的重复项-ii)
+  - [88. 合并两个有序数组](#88-合并两个有序数组)
   - [283. 移动零](#283-移动零)
   - [345. 反转字符串中的元音字母](#345-反转字符串中的元音字母)
   - [455. 分发饼干](#455-分发饼干)
 - [哈希表](#哈希表)
   - [1. 两数之和](#1-两数之和)
   - [3. 无重复字符的最长子串](#3-无重复字符的最长子串)
+  - [76. 最小覆盖子串](#76-最小覆盖子串)
   - [128. 最长连续序列](#128-最长连续序列)
   - [202. 快乐数](#202-快乐数)
 - [二分](#二分)
   - [74. 搜索二维矩阵](#74-搜索二维矩阵)
   - [162. 寻找峰值](#162-寻找峰值)
+- [贪心](#贪心)
+  - [122. 买卖股票的最佳时机 II](#122-买卖股票的最佳时机-ii-1)
 
 ## 链表
 
@@ -809,6 +822,117 @@ public:
 };
 ```
 
+### 77. 组合
+
+给定两个整数 n 和 k，返回范围 [1, n] 中所有可能的 k 个数的组合。
+你可以按 任何顺序 返回答案。
+
+示例 1：
+
+```bash
+输入：n = 4, k = 2
+输出：
+[
+  [2,4],
+  [3,4],
+  [2,3],
+  [1,2],
+  [1,3],
+  [1,4],
+]
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> temp;
+    vector<vector<int>> ans;
+
+    void dfs(int cur, int n, int k) {
+        // 剪枝：temp 长度加上区间 [cur, n] 的长度小于 k，不可能构造出长度为 k 的 temp
+        if (temp.size() + (n - cur + 1) < k) {
+            return;
+        }
+        // 记录合法的答案
+        if (temp.size() == k) {
+            ans.push_back(temp);
+            return;
+        }
+        // 考虑选择当前位置
+        temp.push_back(cur);
+        dfs(cur + 1, n, k);
+        temp.pop_back();
+        // 考虑不选择当前位置
+        dfs(cur + 1, n, k);
+    }
+
+    vector<vector<int>> combine(int n, int k) {
+        dfs(1, n, k);
+        return ans;
+    }
+};
+```
+
+### 78. 子集
+
+给你一个整数数组 nums ，数组中的元素 互不相同 。返回该数组所有可能的子集（幂集）。
+解集 不能 包含重复的子集。你可以按 任意顺序 返回解集。
+
+示例 1：
+
+```bash
+输入：nums = [1,2,3]
+输出：[[],[1],[2],[1,2],[3],[1,3],[2,3],[1,2,3]]
+```
+
+```cpp
+class Solution {
+public:
+    vector<int> t;
+    vector<vector<int>> ans;
+
+    void dfs(int cur, vector<int>& nums) {
+        if (cur == nums.size()) {
+            ans.push_back(t);
+            return;
+        }
+        t.push_back(nums[cur]);
+        dfs(cur + 1, nums);
+        t.pop_back();
+        dfs(cur + 1, nums);
+    }
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        dfs(0, nums);
+        return ans;
+    }
+};
+```
+
+位运算：
+
+```cpp
+class Solution {
+public:
+    vector<int> t;
+    vector<vector<int>> ans;
+
+    vector<vector<int>> subsets(vector<int>& nums) {
+        int n = nums.size();
+        for (int mask = 0; mask < (1 << n); ++mask) {
+            t.clear();
+            for (int i = 0; i < n; ++i) {
+                if (mask & (1 << i)) {
+                    t.push_back(nums[i]);
+                }
+            }
+            ans.push_back(t);
+        }
+        return ans;
+    }
+};
+```
+
 ### 130. 被围绕的区域
 
 给你一个 m x n 的矩阵 board ，由若干字符 'X' 和 'O' ，找到所有被 'X' 围绕的区域，并将这些区域里所有的 'O' 用 'X' 填充。
@@ -1459,6 +1583,192 @@ private:
                       dfs(board, word, i, j + 1, k + 1) || dfs(board, word, i , j - 1, k + 1);
         board[i][j] = word[k];
         return res;
+    }
+};
+```
+
+### 122. 买卖股票的最佳时机 II
+
+给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+
+示例 1：
+
+```bash
+输入：prices = [7,1,5,3,6,4]
+输出：7
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
+     总利润为 4 + 3 = 7 。
+```
+
+定义状态`dp[i][0]`表示第`i`天交易完后手里没有股票的最大利润，`dp[i][1]`表示第`i`天交易完后手里持有一支股票的最大利润（`i`从`0`开始）。
+
+考虑`dp[i][0]`的转移方程，如果这一天交易完后手里没有股票，那么可能的转移状态为前一天已经没有股票，即`dp[i−1][0]`，或者前一天结束的时候手里持有一支股票，即`dp[i−1][1]`，这时候我们要将其卖出，并获得`prices[i]`的收益。因此为了收益最大化，我们列出如下的转移方程：
+
+```bash
+dp[i][0] = max(dp[i-1][0], dp[i-1][1] + prices[i])
+```
+
+再来考虑`dp[i][1]`，按照同样的方式考虑转移状态，那么可能的转移状态为前一天已经持有一支股票，即`dp[i−1][1]`，或者前一天结束时还没有股票，即`dp[i−1][0]`，这时候我们要将其买入，并减少`prices[i]`的收益。可以列出如下的转移方程：
+
+```bash
+dp[i][1] = max(dp[i-1][1], dp[i-1][0] - prices[i])
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int dp[n][2];
+        dp[0][0] = 0, dp[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i]);
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        }
+        return dp[n - 1][0];
+    }
+};
+```
+
+### 123. 买卖股票的最佳时机 III
+
+给定一个数组，它的第 i 个元素是一支给定的股票在第 i 天的价格。
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 两笔 交易。
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+示例 1:
+
+```bash
+输入：prices = [3,3,5,0,0,3,1,4]
+输出：6
+解释：在第 4 天（股票价格 = 0）的时候买入，在第 6 天（股票价格 = 3）的时候卖出，这笔交易所能获得利润 = 3-0 = 3 。
+     随后，在第 7 天（股票价格 = 1）的时候买入，在第 8 天 （股票价格 = 4）的时候卖出，这笔交易所能获得利润 = 4-1 = 3 。
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        int n = prices.size();
+        int buy1 = -prices[0], sell1 = 0;
+        int buy2 = -prices[0], sell2 = 0;
+        for (int i = 1; i < n; ++i) {
+            buy1 = max(buy1, -prices[i]);
+            sell1 = max(sell1, buy1 + prices[i]);
+            buy2 = max(buy2, sell1 - prices[i]);
+            sell2 = max(sell2, buy2 + prices[i]);
+        }
+        return sell2;
+    }
+};
+```
+
+### 188. 买卖股票的最佳时机 IV
+
+给你一个整数数组 prices 和一个整数 k ，其中 prices[i] 是某支给定的股票在第 i 天的价格。
+设计一个算法来计算你所能获取的最大利润。你最多可以完成 k 笔交易。也就是说，你最多可以买 k 次，卖 k 次。
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+示例 1：
+
+```bash
+输入：k = 2, prices = [2,4,1]
+输出：2
+解释：在第 1 天 (股票价格 = 2) 的时候买入，在第 2 天 (股票价格 = 4) 的时候卖出，这笔交易所能获得利润 = 4-2 = 2 。
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(int k, vector<int>& prices) {
+        k = min<int>(k, prices.size() / 2) + 1;
+        vector buy(k, INT_MIN), sel(k, 0);
+        for (int i : prices) {
+            for (int j = 1; j < k; j++) {
+                buy[j] = max(buy[j], sel[j - 1] - i);
+                sel[j] = max(sel[j], buy[j] + i);
+            }
+        }
+        return sel.back();
+    }
+};
+```
+
+### 309. 买卖股票的最佳时机含冷冻期
+
+给定一个整数数组prices，其中第  prices[i] 表示第 i 天的股票价格 。​
+设计一个算法计算出最大利润。在满足以下约束条件下，你可以尽可能地完成更多的交易（多次买卖一支股票）:
+卖出股票后，你无法在第二天买入股票 (即冷冻期为 1 天)。
+注意：你不能同时参与多笔交易（你必须在再次购买前出售掉之前的股票）。
+
+示例 1:
+
+```bash
+输入: prices = [1,2,3,0,2]
+输出: 3 
+解释: 对应的交易状态为: [买入, 卖出, 冷冻期, 买入, 卖出]
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {
+        if (prices.empty()) {
+            return 0;
+        }
+
+        int n = prices.size();
+        // f[i][0]: 手上持有股票的最大收益
+        // f[i][1]: 手上不持有股票，并且处于冷冻期中的累计最大收益
+        // f[i][2]: 手上不持有股票，并且不在冷冻期中的累计最大收益
+        vector<vector<int>> f(n, vector<int>(3));
+        f[0][0] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            f[i][0] = max(f[i - 1][0], f[i - 1][2] - prices[i]);
+            f[i][1] = f[i - 1][0] + prices[i];
+            f[i][2] = max(f[i - 1][1], f[i - 1][2]);
+        }
+        return max(f[n - 1][1], f[n - 1][2]);
+    }
+};
+```
+
+### 714. 买卖股票的最佳时机含手续费
+
+给定一个整数数组 prices，其中 prices[i]表示第 i 天的股票价格 ；整数 fee 代表了交易股票的手续费用。
+你可以无限次地完成交易，但是你每笔交易都需要付手续费。如果你已经购买了一个股票，在卖出它之前你就不能再继续购买股票了。
+
+返回获得利润的最大值。
+注意：这里的一笔交易指买入持有并卖出股票的整个过程，每笔交易你只需要为支付一次手续费。
+
+示例 1：
+
+```bash
+输入：prices = [1, 3, 2, 8, 4, 9], fee = 2
+输出：8
+解释：能够达到的最大利润:  
+在此处买入 prices[0] = 1
+在此处卖出 prices[3] = 8
+在此处买入 prices[4] = 4
+在此处卖出 prices[5] = 9
+总利润: ((8 - 1) - 2) + ((9 - 4) - 2) = 8
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices, int fee) {
+        int n = prices.size();
+        vector<vector<int>> dp(n, vector<int>(2));
+        dp[0][0] = 0, dp[0][1] = -prices[0];
+        for (int i = 1; i < n; ++i) {
+            dp[i][0] = max(dp[i - 1][0], dp[i - 1][1] + prices[i] - fee);
+            dp[i][1] = max(dp[i - 1][1], dp[i - 1][0] - prices[i]);
+        }
+        return dp[n - 1][0];
     }
 };
 ```
@@ -2721,6 +3031,25 @@ public:
 };
 ```
 
+### 172. 阶乘后的零
+
+给定一个整数 n ，返回 n! 结果中尾随零的数量。
+提示 `n! = n * (n - 1) * (n - 2) * ... * 3 * 2 * 1`
+
+```cpp
+class Solution {
+public:
+    int trailingZeroes(int n) {
+        int ans = 0;
+        while (n) {
+            n /= 5;
+            ans += n;
+        }
+        return ans;
+    }
+};
+```
+
 ### 365. 水壶问题
 
 有两个水壶，容量分别为 jug1Capacity 和 jug2Capacity 升。水的供应是无限的。确定是否有可能使用这两个壶准确得到 targetCapacity 升。
@@ -3043,6 +3372,62 @@ public:
 };
 ```
 
+### 232. 用栈实现队列
+
+请你仅使用两个栈实现先入先出队列。队列应当支持一般队列支持的所有操作（push、pop、peek、empty）：
+
+实现 MyQueue 类：
+
+void push(int x) 将元素 x 推到队列的末尾
+int pop() 从队列的开头移除并返回元素
+int peek() 返回队列开头的元素
+boolean empty() 如果队列为空，返回 true ；否则，返回 false
+说明：
+
+你 只能 使用标准的栈操作 —— 也就是只有 push to top, peek/pop from top, size, 和 is empty 操作是合法的。
+你所使用的语言也许不支持栈。你可以使用 list 或者 deque（双端队列）来模拟一个栈，只要是标准的栈操作即可。
+
+```cpp
+class MyQueue {
+private:
+    stack<int> inStack, outStack;
+
+    void in2out() {
+        while (!inStack.empty()) {
+            outStack.push(inStack.top());
+            inStack.pop();
+        }
+    }
+
+public:
+    MyQueue() {}
+
+    void push(int x) {
+        inStack.push(x);
+    }
+
+    int pop() {
+        if (outStack.empty()) {
+            in2out();
+        }
+        int x = outStack.top();
+        outStack.pop();
+        return x;
+    }
+
+    int peek() {
+        if (outStack.empty()) {
+            in2out();
+        }
+        return outStack.top();
+    }
+
+    bool empty() {
+        return inStack.empty() && outStack.empty();
+    }
+};
+```
+
 ## 双指针
 
 ### 11. 盛最多水的容器
@@ -3284,6 +3669,44 @@ public:
 };
 ```
 
+### 88. 合并两个有序数组
+
+给你两个按 非递减顺序 排列的整数数组 nums1 和 nums2，另有两个整数 m 和 n ，分别表示 nums1 和 nums2 中的元素数目。
+请你 合并 nums2 到 nums1 中，使合并后的数组同样按 非递减顺序 排列。
+注意：最终，合并后数组不应由函数返回，而是存储在数组 nums1 中。为了应对这种情况，nums1 的初始长度为 m + n，其中前 m 个元素表示应合并的元素，后 n 个元素为 0 ，应忽略。nums2 的长度为 n 。
+
+示例 1：
+
+```bash
+输入：nums1 = [1,2,3,0,0,0], m = 3, nums2 = [2,5,6], n = 3
+输出：[1,2,2,3,5,6]
+解释：需要合并 [1,2,3] 和 [2,5,6] 。
+合并结果是 [1,2,2,3,5,6] ，其中斜体加粗标注的为 nums1 中的元素。
+```
+
+```cpp
+class Solution {
+public:
+    void merge(vector<int>& nums1, int m, vector<int>& nums2, int n) {
+        int p1 = m - 1, p2 = n - 1;
+        int tail = m + n - 1;
+        int cur;
+        while (p1 >= 0 || p2 >= 0) {
+            if (p1 == -1) {
+                cur = nums2[p2--];
+            } else if (p2 == -1) {
+                cur = nums1[p1--];
+            } else if (nums1[p1] > nums2[p2]) {
+                cur = nums1[p1--];
+            } else {
+                cur = nums2[p2--];
+            }
+            nums1[tail--] = cur;
+        }
+    }
+};
+```
+
 ### 283. 移动零
 
 给定一个数组 nums，编写一个函数将所有 0 移动到数组的末尾，同时保持非零元素的相对顺序。
@@ -3436,6 +3859,66 @@ public:
         }
         return maxStr;
         
+    }
+};
+```
+
+### 76. 最小覆盖子串
+
+给你一个字符串 s 、一个字符串 t 。返回 s 中涵盖 t 所有字符的最小子串。如果 s 中不存在涵盖 t 所有字符的子串，则返回空字符串 "" 。
+
+注意：
+
+对于 t 中重复字符，我们寻找的子字符串中该字符数量必须不少于 t 中该字符数量。
+如果 s 中存在这样的子串，我们保证它是唯一的答案。
+
+示例 1：
+
+```bash
+输入：s = "ADOBECODEBANC", t = "ABC"
+输出："BANC"
+解释：最小覆盖子串 "BANC" 包含来自字符串 t 的 'A'、'B' 和 'C'。
+```
+
+```cpp
+class Solution {
+public:
+    unordered_map <char, int> ori, cnt;
+
+    bool check() {
+        for (const auto &p: ori) {
+            if (cnt[p.first] < p.second) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    string minWindow(string s, string t) {
+        for (const auto &c: t) {
+            ++ori[c];
+        }
+
+        int l = 0, r = -1;
+        int len = INT_MAX, ansL = -1, ansR = -1;
+
+        while (r < int(s.size())) {
+            if (ori.find(s[++r]) != ori.end()) {
+                ++cnt[s[r]];
+            }
+            while (check() && l <= r) {
+                if (r - l + 1 < len) {
+                    len = r - l + 1;
+                    ansL = l;
+                }
+                if (ori.find(s[l]) != ori.end()) {
+                    --cnt[s[l]];
+                }
+                ++l;
+            }
+        }
+
+        return ansL == -1 ? string() : s.substr(ansL, len);
     }
 };
 ```
@@ -3600,6 +4083,38 @@ public:
         }
         
         return idx;
+    }
+};
+```
+
+## 贪心
+
+### 122. 买卖股票的最佳时机 II
+
+给你一个整数数组 prices ，其中 prices[i] 表示某支股票第 i 天的价格。
+在每一天，你可以决定是否购买和/或出售股票。你在任何时候 最多 只能持有 一股 股票。你也可以先购买，然后在 同一天 出售。
+返回 你能获得的 最大 利润 。
+
+示例 1：
+
+```bash
+输入：prices = [7,1,5,3,6,4]
+输出：7
+解释：在第 2 天（股票价格 = 1）的时候买入，在第 3 天（股票价格 = 5）的时候卖出, 这笔交易所能获得利润 = 5 - 1 = 4 。
+     随后，在第 4 天（股票价格 = 3）的时候买入，在第 5 天（股票价格 = 6）的时候卖出, 这笔交易所能获得利润 = 6 - 3 = 3 。
+     总利润为 4 + 3 = 7 。
+```
+
+```cpp
+class Solution {
+public:
+    int maxProfit(vector<int>& prices) {   
+        int ans = 0;
+        int n = prices.size();
+        for (int i = 1; i < n; ++i) {
+            ans += max(0, prices[i] - prices[i - 1]);
+        }
+        return ans;
     }
 };
 ```
