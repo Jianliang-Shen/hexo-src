@@ -3,8 +3,7 @@ title: 华为云物联网设备接入及OBS使用
 date: 2020-06-16 14:01:17
 index_img: /img/post_pics/index_img/hardware.jpg
 tags: 
-    - 华为云
-    - linux
+    - Linux
 categories: 
     - 嵌入式
 ---
@@ -13,19 +12,19 @@ categories:
 <!-- more -->  
 
 - [linux操作系统连接华为云](#linux操作系统连接华为云)
-	- [上传TOPIC](#上传topic)
-	- [接收云端下发的命令](#接收云端下发的命令)
-	- [BUG](#bug)
+  - [上传TOPIC](#上传topic)
+  - [接收云端下发的命令](#接收云端下发的命令)
+  - [BUG](#bug)
 - [OBS对象创建](#obs对象创建)
-	- [Windows安装OBS Browser+](#windows安装obs-browser)
-	- [linux安装obsutil](#linux安装obsutil)
-	- [树莓派安装obsutil环境](#树莓派安装obsutil环境)
+  - [Windows安装OBS Browser+](#windows安装obs-browser)
+  - [linux安装obsutil](#linux安装obsutil)
+  - [树莓派安装obsutil环境](#树莓派安装obsutil环境)
 - [树莓派传输视频流](#树莓派传输视频流)
-	- [硬件连接](#硬件连接)
-	- [云端设置RTMP推流地址](#云端设置rtmp推流地址)
-	- [树莓派安装ffmpeg和nginx工具](#树莓派安装ffmpeg和nginx工具)
-	- [推流实现](#推流实现)
-	- [~~安装opencv指北~~](#安装opencv指北)
+  - [硬件连接](#硬件连接)
+  - [云端设置RTMP推流地址](#云端设置rtmp推流地址)
+  - [树莓派安装ffmpeg和nginx工具](#树莓派安装ffmpeg和nginx工具)
+  - [推流实现](#推流实现)
+  - [~~安装opencv指北~~](#安装opencv指北)
 
 ## linux操作系统连接华为云
 

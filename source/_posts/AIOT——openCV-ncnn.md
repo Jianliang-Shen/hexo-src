@@ -2,10 +2,9 @@
 title: MacOS安装ncnn和OpenCV
 date: 2023-06-24 08:41:35
 tags:
-    - 嵌入式
-    - 算法
+    - OpenCV
 categories: 
-    - AIoT
+    - 边缘计算
 ---
 
 你已经学会安装ncnn和opencv来打开图片识别目标了，下面去拯救公主吧！🐛🦆

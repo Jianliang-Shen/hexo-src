@@ -3,8 +3,8 @@ title: Windows系统配置Linux子系统开发ARM
 date: 2019-07-11 16:42:17
 index_img: /img/post_pics/index_img/wsl_ubuntu.JPG
 tags: 
-    - arm
-    - linux
+    - Arm
+    - Linux
 categories: 
     - 操作系统
 ---

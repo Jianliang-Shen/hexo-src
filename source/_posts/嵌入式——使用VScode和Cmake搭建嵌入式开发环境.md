@@ -2,8 +2,8 @@
 title: 使用VScode和Cmake搭建嵌入式开发环境
 date: 2019-07-22 17:45:53
 tags:
-    - linux
-    - vscode
+    - Linux
+    - VSCode
 categories: 
     - 嵌入式
 ---

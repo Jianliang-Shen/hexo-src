@@ -3,7 +3,7 @@ title: Cmder美化WSL Ubuntu
 date: 2019-08-10 14:06:52
 index_img: /img/post_pics/index_img/cmder_wsl_ubuntu.JPG
 tags:
-    - linux
+    - Linux
 categories: 
     - 操作系统
 ---

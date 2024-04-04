@@ -3,8 +3,9 @@ title: 快速了解zephyr
 date: 2023-06-25 21:52:36
 index_img: /img/post_pics/index_img/Zephyr-logo.png
 tags: 
-    - arm
-    - 嵌入式
+    - Arm
+    - RTOS
+    - Zephyr
 categories: 
     - 操作系统
 ---

@@ -6,7 +6,7 @@ tags:
     - 算法
     - 数据结构
 categories: 
-    - 编程语言
+    - 面试
 ---
 使用STL容器刷leetcode事半功倍，包括`vector`、`string`、`deque`、`list`、`stack`、`queue`、`priority_queue`、`set`、`map`等，本文内容根据《算法设计与分析》第一章及刷题经验整理。
 

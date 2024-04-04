@@ -2,7 +2,7 @@
 title: git工具使用指北
 date: 2021-03-31 21:40:59
 tags:
-    - git
+    - Git
 categories: 
     - 软件
 ---

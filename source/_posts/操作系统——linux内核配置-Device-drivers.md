@@ -2,8 +2,10 @@
 title: linux内核配置--Device drivers
 date: 2019-07-23 13:20:57
 tags: 
-    - linux
-    - kernel
+    - Linux
+    - Kconfig
+    - 内核
+    - 驱动
 categories: 
     - 操作系统
 ---

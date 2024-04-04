@@ -3,10 +3,13 @@ title: ARM Trusted Firmware
 date: 2021-05-28 20:59:25
 index_img: /img/post_pics/index_img/tfm_logo.png
 tags:
-    - arm
-    - firmware
-categories.
     - TF-M
+    - 固件
+    - TEE
+    - PSA
+    - Arm
+categories:
+    - 安全
 ---
 
 <!-- more -->

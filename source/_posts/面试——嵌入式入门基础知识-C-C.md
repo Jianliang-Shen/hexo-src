@@ -4,9 +4,9 @@ date: 2020-6-25 19:13:09
 index_img: /img/post_pics/index_img/embedded_c.png
 tags: 
     - C/C++
-    - linux
+    - Linux
 categories: 
-    - 嵌入式
+    - 面试
 ---
 关于C/C++重点知识点汇总。
   

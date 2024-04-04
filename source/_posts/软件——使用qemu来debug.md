@@ -4,7 +4,8 @@ date: 2023-08-10 10:59:20
 index_img: /img/post_pics/index_img/vscode_debug.png
 tags:
     - TF-M
-    - qemu
+    - Vscode
+    - Debug
 categories: 
     - 软件
 ---

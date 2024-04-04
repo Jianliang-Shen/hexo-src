@@ -1,11 +1,12 @@
 ---
 title: TF-M是如何调用secure接口的
 date: 2021-05-29 19:18:06
-tags: 
-    - Security
-    - 嵌入式
-categories: 
+tags:
     - TF-M
+    - 固件
+    - Arm
+categories:
+    - 安全
 ---
 
 回到问题之初，TF-M是怎么进入secure端的，在LIB model的时候，曾有过一个SG命令，看看其他模式怎么进入的。

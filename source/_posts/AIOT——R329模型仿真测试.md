@@ -2,8 +2,9 @@
 title: R329模型仿真测试
 date: 2021-07-15 22:07:29
 tags:
-    - linux
+    - Linux
     - 算法
+    - AI
 categories: 
     - 边缘计算
 ---

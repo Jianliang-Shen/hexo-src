@@ -3,7 +3,7 @@ title: SQLite3 BLOB增删改查编写
 date: 2020-06-20 17:59:33
 tags: 
     - 数据库
-    - linux
+    - Linux
     - C/C++
     - 操作系统
 categories: 

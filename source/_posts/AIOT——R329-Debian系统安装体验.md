@@ -2,7 +2,7 @@
 title: R329 Debian系统安装体验
 date: 2021-08-02 21:56:29
 tags: 
-    - linux
+    - Linux
     - 算法
     - OpenCV
 categories: 

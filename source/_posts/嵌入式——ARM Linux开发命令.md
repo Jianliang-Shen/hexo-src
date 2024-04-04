@@ -2,8 +2,8 @@
 title: ARM Linux开发命令
 date: 2019-07-22 17:45:47
 tags:
-    - arm
-    - linux
+    - Arm
+    - Linux
 categories: 
     - 嵌入式
 ---

@@ -3,10 +3,10 @@ title: 基于TCP/IP网络socket通信
 date: 2019-08-09 12:51:01
 index_img: /img/post_pics/tcpip/协议2.png
 tags: 
-    - linux
-    - socket
+    - Linux
+    - 网络
 categories: 
-    - 嵌入式
+    - 操作系统
 ---
 
 网络传输文件现有的工具为ssh或者tcp指令，ssh中的scp指令如下：

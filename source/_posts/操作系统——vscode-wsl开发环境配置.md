@@ -2,7 +2,7 @@
 title: VScode WSL开发环境配置
 date: 2019-08-10 14:40:08
 tags: 
-    - linux
+    - Linux
 categories: 
     - 操作系统
 ---

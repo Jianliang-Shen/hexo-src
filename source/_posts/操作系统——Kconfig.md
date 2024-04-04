@@ -2,8 +2,8 @@
 title: Kconfig快速上手指南
 date: 2022-09-06 00:30:09
 tags: 
-    - linux
-    - kernel
+    - Linux
+    - Kconfig
 categories: 
     - 操作系统
 ---

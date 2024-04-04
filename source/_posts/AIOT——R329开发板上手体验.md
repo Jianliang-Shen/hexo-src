@@ -3,7 +3,7 @@ title: R329开发板上手体验
 date: 2021-07-27 11:23:11
 index_img: /img/post_pics/r329/9.jpeg
 tags: 
-    - linux
+    - Linux
     - 算法
     - OpenCV
 categories: 

@@ -2,8 +2,9 @@
 title: Linux内核Kconfig解读
 date: 2019-07-28 20:55:44
 tags:
-    - linux
-    - kernel
+    - Linux
+    - Kconfig
+    - 内核
 categories: 
     - 操作系统
 ---

@@ -2,10 +2,13 @@
 title: TF-M PSA Interface
 date: 2021-05-29 11:48:09
 tags:
-    - arm
-    - firmware
-categories: 
     - TF-M
+    - 固件
+    - TEE
+    - PSA
+    - Arm
+categories:
+    - 安全
 ---
 
 ## PSA Interface

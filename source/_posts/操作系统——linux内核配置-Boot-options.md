@@ -2,8 +2,9 @@
 title: linux内核配置--Boot options
 date: 2019-07-24 20:21:19
 tags: 
-    - linux
-    - kernel
+    - Linux
+    - 内核
+    - Kconfig
 categories: 
     - 操作系统
 ---
