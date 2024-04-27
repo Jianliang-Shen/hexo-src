@@ -30,9 +30,9 @@ highlight: # 代码高亮
 fun_features: # 一些好玩的功能
   typing: # 为 subtitle 添加打字机效果
     enable: true
-    typeSpeed: 70  # 打印速度，数字越大越慢
-    # cursorChar: "|" # 游标字符
-    cursorChar: "_" # 游标字符
+    typeSpeed: 50  # 打印速度，数字越大越慢
+    cursorChar: "|" # 游标字符
+    # cursorChar: "_" # 游标字符
     loop: false # 是否循环播放效果
   anchorjs: # 为文章内容中的标题添加锚图标
     enable: true
@@ -189,7 +189,8 @@ index:
   post_default_img: '' # 默认的文章封面图，当没有指定 index_img 时会使用该图片，若都为空则不显示任何图片
   slogan:  # 首页副标题的独立设置
     enable: true  # 为 false 则不显示任何内容
-    text: '我的心灵是云下漫无边际的旷野，只有来过的风才知道这里也曾群山连绵～'  # 为空则按 hexo config.subtitle 显示
+    text: '博学之 审问之 慎思之 明辨之 笃行之 --《中庸·礼记》'
+    # text: '我的心灵是云下漫无边际的旷野，只有来过的风才知道这里也曾群山连绵～'  # 为空则按 hexo config.subtitle 显示
     # text: 'printf (\"Hello world\\n\");'  # 为空则按 hexo config.subtitle 显示
   auto_excerpt:
     enable: true
@@ -431,7 +432,6 @@ links:
       title: 'Leetcode',
       intro: '该刷题了',
       link: 'https://leetcode-cn.com/',
-      image: '/img/leetcode.PNG'
     }
     - {
       title: '牛客网',
