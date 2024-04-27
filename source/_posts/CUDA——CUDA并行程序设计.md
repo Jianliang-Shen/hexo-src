@@ -56,11 +56,16 @@ categories:
 
 ## System info
 
-Based on Jeston Orin Nano.
+Based on [Jetson Orin Nano](https://www.nvidia.com/en-us/autonomous-machines/embedded-systems/jetson-orin/).
 
-- 1024-core NVIDIA Ampere architecture GPU with 32 Tensor Cores
-- 40 TOPS
-- 625MHz
+- GPU: 1024-core NVIDIA Ampere architecture GPU with 32 Tensor Cores
+- AI Performance: 40 TOPS
+- GPU Max Frequency: 625MHz
+- CPU: 6-core Arm® Cortex®-A78AE v8.2 64-bit CPU 1.5MB L2 + 4MB L3
+- CPU Max Frequency: CPU Max Frequency
+- Memory: 8GB 128-bit LPDDR5 68 GB/s
+- CSI Camera: 2x MIPI CSI-2 22-pin Camera Connectors
+- Power: 7W - 15W
 
 ```bash
 nvcc --version
