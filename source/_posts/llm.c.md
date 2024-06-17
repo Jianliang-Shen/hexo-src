@@ -1,5 +1,5 @@
 ---
-title: Karpathy llm.c
+title: Karpathy llm.c测试与代码分析
 index_img: /img/post_pics/gpu/gpt2.png
 date: 2024-04-28 10:07:29
 tags:
@@ -9,7 +9,8 @@ categories:
     - GPU
 ---
 
-[llm.c 仓库地址](https://github.com/karpathy/llm.c)
+仓库地址: [llm.c](https://github.com/karpathy/llm.c)
+模型镜像: [HF-Mirror](https://hf-mirror.com/)
 
 <!-- more -->
 
@@ -21,6 +22,8 @@ categories:
 [GPT-2通俗详解](https://www.cnblogs.com/zhongzhaoxie/p/13064404.html)
 [详细理解GPT2模型结构及其训练过程—GPT系列训练与部署](https://blog.csdn.net/suiyingy/article/details/130937792)
 [NVIDIA Developer Tools](https://developer.nvidia.com/tools-overview)
+[llm.c代码详细解读（一）](https://zhuanlan.zhihu.com/p/692116370)
+[C语言写的LLM训练](https://blog.csdn.net/eidolon_foot/article/details/138474675)
 
 ## 安装NCCL
 
@@ -38,6 +41,7 @@ $ sudo apt-get update
 
 |<span style="display:inline-block;width:300px">Platform</span>|<span style="display:inline-block;width:250px">Time</span>|<span style="display:inline-block;width:250px">Loss</span>|
 |-----------|------------|------|
+| **4070S**     | 198.34 ms  | 3.48 |
 | **H100**      | 36.90 ms   | 3.52 |
 | **2 H100**    | 30.94 ms   | 3.70 |
 | **Intel CPU** | 2635.72 ms | 4.02 |
@@ -48,11 +52,179 @@ $ sudo apt-get update
 
 ```bash
 pip install -r requirements.txt
+sudo apt install openmpi-bin openmpi-doc libopenmpi-dev
+
 python prepro_tinyshakespeare.py
 python train_gpt2.py
 make train_gpt2fp32cu
 ./train_gpt2fp32cu
 ```
+
+<details>
+<summary>RTX4070S LOG</summary>
+
+```txt
++-----------------------+----------------------------------------------------+
+| Parameter             | Value                                              |
++-----------------------+----------------------------------------------------+
+| train data pattern    | dev/data/tinyshakespeare/tiny_shakespeare_train.bin |
+| val data pattern      | dev/data/tinyshakespeare/tiny_shakespeare_val.bin  |
+| output log file       | NULL                                               |
+| batch size B          | 4                                                  |
+| sequence length T     | 1024                                               |
+| learning rate         | 0.000300                                           |
+| val_loss_every        | 20                                                 |
+| val_max_steps         | 20                                                 |
+| sample_every          | 20                                                 |
+| genT                  | 64                                                 |
++-----------------------+----------------------------------------------------+
+| device                | NVIDIA GeForce RTX 4070 SUPER                      |
+| TF32                  | enabled                                            |
++-----------------------+----------------------------------------------------+
+| max_sequence_length T | 1024                                               |
+| vocab_size V          | 50257                                              |
+| padded_vocab_size Vp  | 50304                                              |
+| num_layers L          | 12                                                 |
+| num_heads NH          | 12                                                 |
+| channels C            | 768                                                |
+| num_parameters        | 124475904                                          |
++-----------------------+----------------------------------------------------+
+| train_num_batches     | 74                                                 |
+| val_num_batches       | 8                                                  |
++-----------------------+----------------------------------------------------+
+allocated 474 MiB for model parameters
+allocated 5706 MiB for activations
+val loss 4.508645
+allocated 474 MiB for parameter gradients
+allocated 252 MiB for activation gradients
+allocated 474 MiB for AdamW optimizer state m
+allocated 474 MiB for AdamW optimizer state v
+step    1/74: train loss 4.287312 (216.329368 ms, 18934 tok/s)
+step    2/74: train loss 4.725657 (196.385098 ms, 20856 tok/s)
+step    3/74: train loss 4.393068 (195.683672 ms, 20931 tok/s)
+step    4/74: train loss 3.628445 (196.121049 ms, 20885 tok/s)
+step    5/74: train loss 3.717055 (194.049300 ms, 21108 tok/s)
+step    6/74: train loss 4.013161 (197.751605 ms, 20712 tok/s)
+step    7/74: train loss 4.111417 (195.673638 ms, 20932 tok/s)
+step    8/74: train loss 3.623600 (199.146686 ms, 20567 tok/s)
+step    9/74: train loss 3.965506 (196.338315 ms, 20861 tok/s)
+step   10/74: train loss 3.581475 (195.944831 ms, 20903 tok/s)
+step   11/74: train loss 4.028997 (197.172886 ms, 20773 tok/s)
+step   12/74: train loss 3.813888 (195.415474 ms, 20960 tok/s)
+step   13/74: train loss 4.029539 (195.721443 ms, 20927 tok/s)
+step   14/74: train loss 3.885392 (196.801713 ms, 20812 tok/s)
+step   15/74: train loss 3.711839 (196.184539 ms, 20878 tok/s)
+step   16/74: train loss 3.553492 (195.104225 ms, 20993 tok/s)
+step   17/74: train loss 3.988450 (196.938082 ms, 20798 tok/s)
+step   18/74: train loss 3.809328 (195.232320 ms, 20980 tok/s)
+step   19/74: train loss 3.534165 (196.839770 ms, 20808 tok/s)
+step   20/74: train loss 3.678106 (196.428516 ms, 20852 tok/s)
+val loss 3.705425
+generating:
+---
+O, but Vanlin, you no less light the cell of our men,
+Look to thy light! How much an eye will kiss the seat, save
+staying and:
+That way unsayers
+
+<|endoftext|>IETERABETH:
+Your good shrewescy and
+to thy fingers tailorate
+---
+step   21/74: train loss 3.608904 (198.159644 ms, 20670 tok/s)
+step   22/74: train loss 3.611267 (197.791646 ms, 20708 tok/s)
+step   23/74: train loss 3.146728 (197.174480 ms, 20773 tok/s)
+step   24/74: train loss 3.344270 (196.746858 ms, 20818 tok/s)
+step   25/74: train loss 3.707907 (198.275599 ms, 20658 tok/s)
+step   26/74: train loss 3.539583 (203.417195 ms, 20135 tok/s)
+step   27/74: train loss 3.844320 (200.666546 ms, 20411 tok/s)
+step   28/74: train loss 3.445682 (197.969591 ms, 20690 tok/s)
+step   29/74: train loss 3.318048 (196.887630 ms, 20803 tok/s)
+step   30/74: train loss 3.279650 (197.256815 ms, 20764 tok/s)
+step   31/74: train loss 3.154556 (198.877454 ms, 20595 tok/s)
+step   32/74: train loss 3.444809 (200.677574 ms, 20410 tok/s)
+step   33/74: train loss 3.566215 (199.827710 ms, 20497 tok/s)
+step   34/74: train loss 3.487424 (197.150262 ms, 20776 tok/s)
+step   35/74: train loss 3.722091 (199.232841 ms, 20558 tok/s)
+step   36/74: train loss 3.380269 (198.515393 ms, 20633 tok/s)
+step   37/74: train loss 3.199764 (198.736697 ms, 20610 tok/s)
+step   38/74: train loss 3.179839 (198.228997 ms, 20662 tok/s)
+step   39/74: train loss 3.601362 (199.353707 ms, 20546 tok/s)
+step   40/74: train loss 3.083126 (202.057997 ms, 20271 tok/s)
+val loss 3.582962
+generating:
+---
+Lightaxe hunt,
+USA, sir!
+I come to make a brief knightle
+The fool his sorceries
+In wounding the good and that of this fellowship.
+Intence remains unwholesome to be run,
+Like the one that is ere the countenance is waked.
+---
+step   41/74: train loss 3.830101 (199.004444 ms, 20582 tok/s)
+step   42/74: train loss 3.362655 (199.871726 ms, 20493 tok/s)
+step   43/74: train loss 3.355859 (198.784472 ms, 20605 tok/s)
+step   44/74: train loss 3.418773 (198.443265 ms, 20640 tok/s)
+step   45/74: train loss 3.608499 (198.736102 ms, 20610 tok/s)
+step   46/74: train loss 3.128481 (199.459168 ms, 20535 tok/s)
+step   47/74: train loss 3.464015 (196.227803 ms, 20873 tok/s)
+step   48/74: train loss 3.975485 (197.719352 ms, 20716 tok/s)
+step   49/74: train loss 3.224785 (197.451708 ms, 20744 tok/s)
+step   50/74: train loss 3.417883 (195.725265 ms, 20927 tok/s)
+step   51/74: train loss 3.761238 (197.567030 ms, 20732 tok/s)
+step   52/74: train loss 3.769763 (197.559271 ms, 20733 tok/s)
+step   53/74: train loss 3.410849 (197.411474 ms, 20748 tok/s)
+step   54/74: train loss 3.389037 (197.022081 ms, 20789 tok/s)
+step   55/74: train loss 3.274219 (196.771373 ms, 20816 tok/s)
+step   56/74: train loss 3.260659 (197.592729 ms, 20729 tok/s)
+step   57/74: train loss 3.028346 (197.423359 ms, 20747 tok/s)
+step   58/74: train loss 3.479192 (196.417625 ms, 20853 tok/s)
+step   59/74: train loss 3.271112 (198.220795 ms, 20663 tok/s)
+step   60/74: train loss 3.496041 (196.792773 ms, 20813 tok/s)
+val loss 3.490089
+generating:
+---
+
+Ladies and gentlemen,
+I with these ancient deaths,
+
+<|endoftext|>LEONTES:
+Now I am a saint.
+Hear: Prevento,
+Verona Oremo! Thy love center is
+Would take her.
+More than that one fellow who descends from heaven at capone
+---
+step   61/74: train loss 3.211886 (200.864481 ms, 20391 tok/s)
+step   62/74: train loss 3.451102 (202.447595 ms, 20232 tok/s)
+step   63/74: train loss 3.371627 (202.120002 ms, 20265 tok/s)
+step   64/74: train loss 3.408307 (203.412583 ms, 20136 tok/s)
+step   65/74: train loss 3.579690 (197.981410 ms, 20688 tok/s)
+step   66/74: train loss 3.029516 (201.803798 ms, 20296 tok/s)
+step   67/74: train loss 3.296247 (198.256757 ms, 20660 tok/s)
+step   68/74: train loss 3.676572 (197.812296 ms, 20706 tok/s)
+step   69/74: train loss 3.297943 (197.705935 ms, 20717 tok/s)
+step   70/74: train loss 3.647188 (199.209822 ms, 20561 tok/s)
+step   71/74: train loss 3.566411 (198.794319 ms, 20604 tok/s)
+step   72/74: train loss 3.731066 (199.354373 ms, 20546 tok/s)
+step   73/74: train loss 3.825200 (199.243927 ms, 20557 tok/s)
+step   74/74: train loss 3.380793 (201.802198 ms, 20297 tok/s)
+val loss 3.475538
+generating:
+---
+BUCKINGHAM:
+But in my heart his fiendy rascal,
+By silky hand, shouted more satisfied,
+Than to my breath with long informal desperate quips
+Your brother alike sir.
+And brace me not that with his woes:
+Never to sit or play this
+---
+total average iteration time: 198.341601 ms
+
+```
+</details>
 
 <details>
 <summary>H100 LOG</summary>
