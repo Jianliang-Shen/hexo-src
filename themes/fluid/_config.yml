@@ -382,9 +382,9 @@ about:  # 关于页需要手动创建，具体请见：https://hexo.fluid-dev.co
   banner_img_height: 60  # available: 0 - 100
   banner_mask_alpha: 0.3  # available: 0 - 1.0
   subtitle: 简历
-  avatar: /img/person.jpg # 头像
+  avatar: /img/avatar.png # 头像
   name: Jianliang Shen
-  introduce: '嵌入式开发/软件开发' # 支持 HTML
+  introduce: 'GPU KMD/嵌入式/软件开发' # 支持 HTML
   icons: # 更多图标可从 https://hexo.fluid-dev.com/docs/icon/ 查找，class 代表图标的 css class
     - { class: 'iconfont icon-github-fill', link: 'https://github.com/sjl3110', tip: 'GitHub' }
     # - { class: 'iconfont icon-douban-fill', link: 'https://douban.com', tip: '豆瓣' }

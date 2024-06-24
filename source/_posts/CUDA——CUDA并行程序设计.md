@@ -8,7 +8,7 @@ tags:
     - GPU
     - CUDA
 categories: 
-    - CUDA
+    - GPU
 ---
 
 ## 目录

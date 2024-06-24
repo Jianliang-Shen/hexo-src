@@ -45,7 +45,7 @@ R329的板子到手后折腾了几天，将前期学习的步骤简单记录一�
 ### 1.2制卡
 
 使用网盘中PhoenixCard工具将img刷入sd卡，因为后面要用到OpenCV，所以先烧写tina_r329-evb5_uart0_0723.img。如下图步骤：
-![图4](/img/post_pics/r329/4.jpeg)
+![图4](/img/post_pics/r329/4.png)
 
 制卡完成显示一个绿色的进度条，如果不行尝试换卡。
 
@@ -84,7 +84,7 @@ sudo minicom -D /dev/ttyUSB0
 ```
 
 开机进入系统：
-![图5](/img/post_pics/r329/5.jpeg)
+![图5](/img/post_pics/r329/5.png)
 
 连接wifi：
 
@@ -153,7 +153,3 @@ rmmod maix_sense/aipu.ko
 * 帧率和模型有关，resnet50只有7-8帧，而mbnetv2可以达到20-21帧
 * 注意参数使用int8还是uint8
 * 多跑几次内存不足，所以需要卸载驱动模块。
-
-## 4.待续
-
-挖坑。

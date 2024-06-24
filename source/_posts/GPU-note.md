@@ -14,95 +14,95 @@ categories:
 - [目录](#目录)
 - [缩略词](#缩略词)
 - [GPU基础](#gpu基础)
-	- [纹理缓存](#纹理缓存)
-	- [GPU中的Frame Buffer](#gpu中的frame-buffer)
-		- [1. Frame Buffer的定义和作用](#1-frame-buffer的定义和作用)
-		- [2. Frame Buffer的工作原理](#2-frame-buffer的工作原理)
-		- [3. Frame Buffer的组成](#3-frame-buffer的组成)
-		- [4. 应用场景](#4-应用场景)
-		- [5. 性能和优化](#5-性能和优化)
-	- [GPU中的DF和UMC](#gpu中的df和umc)
-		- [1. DF（Data Fabric）](#1-dfdata-fabric)
-		- [2. UMC（Unified Memory Controller）](#2-umcunified-memory-controller)
-		- [DF和UMC的关系和作用](#df和umc的关系和作用)
-	- [GPU的Doorbell机制](#gpu的doorbell机制)
-		- [1. Doorbell机制的定义](#1-doorbell机制的定义)
-		- [2. Doorbell机制的工作原理](#2-doorbell机制的工作原理)
-		- [3. Doorbell机制的优势](#3-doorbell机制的优势)
-		- [4. Doorbell机制的应用场景](#4-doorbell机制的应用场景)
-	- [Doorbell的缺点](#doorbell的缺点)
-		- [1. 硬件资源占用](#1-硬件资源占用)
-		- [2. 同步开销](#2-同步开销)
-		- [3. 处理负载](#3-处理负载)
-		- [4. 延迟和吞吐量瓶颈](#4-延迟和吞吐量瓶颈)
-		- [5. 复杂性和实现成本](#5-复杂性和实现成本)
-		- [6. 数据一致性](#6-数据一致性)
-		- [7. 错误处理](#7-错误处理)
-	- [GC Command Queue](#gc-command-queue)
-		- [1. GC Command Queue的定义](#1-gc-command-queue的定义)
-		- [2. GC Command Queue的工作原理](#2-gc-command-queue的工作原理)
-		- [3. GC Command Queue的优势](#3-gc-command-queue的优势)
-		- [4. 应用场景](#4-应用场景-1)
-		- [5. 具体示例](#5-具体示例)
-	- [CR3寄存器（Control Register 3）](#cr3寄存器control-register-3)
-		- [1. CR3寄存器的定义](#1-cr3寄存器的定义)
-		- [2. CR3寄存器的作用](#2-cr3寄存器的作用)
-		- [3. CR3寄存器在虚拟机中的使用](#3-cr3寄存器在虚拟机中的使用)
-		- [具体示例：虚拟机启动和CR3初始化](#具体示例虚拟机启动和cr3初始化)
-	- [什么是GPU中的MMHUB？](#什么是gpu中的mmhub)
-		- [1. MMHUB的定义和作用](#1-mmhub的定义和作用)
-		- [2. MMHUB的主要功能](#2-mmhub的主要功能)
-		- [3. MMHUB在GPU架构中的位置](#3-mmhub在gpu架构中的位置)
-		- [4. MMHUB的工作流程](#4-mmhub的工作流程)
-		- [5. MMHUB的应用场景](#5-mmhub的应用场景)
-	- [什么是SHUB？](#什么是shub)
-		- [1. SHUB的定义和作用](#1-shub的定义和作用)
-		- [2. SHUB的主要功能](#2-shub的主要功能)
-		- [3. SHUB在系统架构中的位置](#3-shub在系统架构中的位置)
-		- [4. SHUB的应用场景](#4-shub的应用场景)
-		- [5. SHUB的优势](#5-shub的优势)
-		- [总结](#总结)
-	- [VF和PF的区别及互相访问和调用](#vf和pf的区别及互相访问和调用)
-		- [1. PF（Physical Function）](#1-pfphysical-function)
-			- [主要特点：](#主要特点)
-		- [2. VF（Virtual Function）](#2-vfvirtual-function)
-			- [主要特点：](#主要特点-1)
-		- [3. PF和VF的区别](#3-pf和vf的区别)
-		- [4. PF和VF之间的访问和调用](#4-pf和vf之间的访问和调用)
-			- [1. PF管理VF](#1-pf管理vf)
-			- [2. VF访问设备资源](#2-vf访问设备资源)
-			- [3. 中断和通知机制](#3-中断和通知机制)
-		- [5. 示例应用场景](#5-示例应用场景)
-	- [什么是VF页表？](#什么是vf页表)
-		- [SR-IOV概述](#sr-iov概述)
-		- [VF页表的作用](#vf页表的作用)
-		- [VF页表的工作原理](#vf页表的工作原理)
-		- [VF页表的结构](#vf页表的结构)
-		- [示例：VF页表的工作流程](#示例vf页表的工作流程)
-		- [总结](#总结-1)
-	- [TLB和ATS，ATC](#tlb和atsatc)
-	- [DRM](#drm)
-	- [管中窥"GPU ISA"](#管中窥gpu-isa)
-		- [HIP](#hip)
-		- [汇编](#汇编)
-	- [VGPR](#vgpr)
-	- [AMD GPU LLVM](#amd-gpu-llvm)
-	- [HSAKMT](#hsakmt)
-		- [HSAKMT的角色](#hsakmt的角色)
-	- [什么是Wavefront](#什么是wavefront)
-	- [Barrier in GPU](#barrier-in-gpu)
-	- [Fence](#fence)
-	- [什么是chiplet和die](#什么是chiplet和die)
-	- [GPU架构/集群](#gpu架构集群)
-	- [RDMA](#rdma)
-	- [SDMA](#sdma)
-	- [NVLink](#nvlink)
-	- [RoCE（RDMA over Converged Ethernet）](#rocerdma-over-converged-ethernet)
+  - [纹理缓存](#纹理缓存)
+  - [GPU中的Frame Buffer](#gpu中的frame-buffer)
+    - [1. Frame Buffer的定义和作用](#1-frame-buffer的定义和作用)
+    - [2. Frame Buffer的工作原理](#2-frame-buffer的工作原理)
+    - [3. Frame Buffer的组成](#3-frame-buffer的组成)
+    - [4. 应用场景](#4-应用场景)
+    - [5. 性能和优化](#5-性能和优化)
+  - [GPU中的DF和UMC](#gpu中的df和umc)
+    - [1. DF（Data Fabric）](#1-dfdata-fabric)
+    - [2. UMC（Unified Memory Controller）](#2-umcunified-memory-controller)
+    - [DF和UMC的关系和作用](#df和umc的关系和作用)
+  - [GPU的Doorbell机制](#gpu的doorbell机制)
+    - [1. Doorbell机制的定义](#1-doorbell机制的定义)
+    - [2. Doorbell机制的工作原理](#2-doorbell机制的工作原理)
+    - [3. Doorbell机制的优势](#3-doorbell机制的优势)
+    - [4. Doorbell机制的应用场景](#4-doorbell机制的应用场景)
+  - [Doorbell的缺点](#doorbell的缺点)
+    - [1. 硬件资源占用](#1-硬件资源占用)
+    - [2. 同步开销](#2-同步开销)
+    - [3. 处理负载](#3-处理负载)
+    - [4. 延迟和吞吐量瓶颈](#4-延迟和吞吐量瓶颈)
+    - [5. 复杂性和实现成本](#5-复杂性和实现成本)
+    - [6. 数据一致性](#6-数据一致性)
+    - [7. 错误处理](#7-错误处理)
+  - [GC Command Queue](#gc-command-queue)
+    - [1. GC Command Queue的定义](#1-gc-command-queue的定义)
+    - [2. GC Command Queue的工作原理](#2-gc-command-queue的工作原理)
+    - [3. GC Command Queue的优势](#3-gc-command-queue的优势)
+    - [4. 应用场景](#4-应用场景-1)
+    - [5. 具体示例](#5-具体示例)
+  - [CR3寄存器（Control Register 3）](#cr3寄存器control-register-3)
+    - [1. CR3寄存器的定义](#1-cr3寄存器的定义)
+    - [2. CR3寄存器的作用](#2-cr3寄存器的作用)
+    - [3. CR3寄存器在虚拟机中的使用](#3-cr3寄存器在虚拟机中的使用)
+    - [具体示例：虚拟机启动和CR3初始化](#具体示例虚拟机启动和cr3初始化)
+  - [什么是GPU中的MMHUB？](#什么是gpu中的mmhub)
+    - [1. MMHUB的定义和作用](#1-mmhub的定义和作用)
+    - [2. MMHUB的主要功能](#2-mmhub的主要功能)
+    - [3. MMHUB在GPU架构中的位置](#3-mmhub在gpu架构中的位置)
+    - [4. MMHUB的工作流程](#4-mmhub的工作流程)
+    - [5. MMHUB的应用场景](#5-mmhub的应用场景)
+  - [什么是SHUB？](#什么是shub)
+    - [1. SHUB的定义和作用](#1-shub的定义和作用)
+    - [2. SHUB的主要功能](#2-shub的主要功能)
+    - [3. SHUB在系统架构中的位置](#3-shub在系统架构中的位置)
+    - [4. SHUB的应用场景](#4-shub的应用场景)
+    - [5. SHUB的优势](#5-shub的优势)
+    - [总结](#总结)
+  - [VF和PF的区别及互相访问和调用](#vf和pf的区别及互相访问和调用)
+    - [1. PF（Physical Function）](#1-pfphysical-function)
+      - [主要特点](#主要特点)
+    - [2. VF（Virtual Function）](#2-vfvirtual-function)
+      - [主要特点](#主要特点-1)
+    - [3. PF和VF的区别](#3-pf和vf的区别)
+    - [4. PF和VF之间的访问和调用](#4-pf和vf之间的访问和调用)
+      - [1. PF管理VF](#1-pf管理vf)
+      - [2. VF访问设备资源](#2-vf访问设备资源)
+      - [3. 中断和通知机制](#3-中断和通知机制)
+    - [5. 示例应用场景](#5-示例应用场景)
+  - [什么是VF页表？](#什么是vf页表)
+    - [SR-IOV概述](#sr-iov概述)
+    - [VF页表的作用](#vf页表的作用)
+    - [VF页表的工作原理](#vf页表的工作原理)
+    - [VF页表的结构](#vf页表的结构)
+    - [示例：VF页表的工作流程](#示例vf页表的工作流程)
+    - [总结](#总结-1)
+  - [TLB和ATS，ATC](#tlb和atsatc)
+  - [DRM](#drm)
+  - [管中窥"GPU ISA"](#管中窥gpu-isa)
+    - [HIP](#hip)
+    - [汇编](#汇编)
+  - [VGPR](#vgpr)
+  - [AMD GPU LLVM](#amd-gpu-llvm)
+  - [HSAKMT](#hsakmt)
+    - [HSAKMT的角色](#hsakmt的角色)
+  - [什么是Wavefront](#什么是wavefront)
+  - [Barrier in GPU](#barrier-in-gpu)
+  - [Fence](#fence)
+  - [什么是chiplet和die](#什么是chiplet和die)
+  - [GPU架构/集群](#gpu架构集群)
+  - [RDMA](#rdma)
+  - [SDMA](#sdma)
+  - [NVLink](#nvlink)
+  - [RoCE（RDMA over Converged Ethernet）](#rocerdma-over-converged-ethernet)
 - [开发](#开发)
-	- [什么是内存地址对齐](#什么是内存地址对齐)
-	- [类静态定义](#类静态定义)
+  - [什么是内存地址对齐](#什么是内存地址对齐)
+  - [类静态定义](#类静态定义)
 - [驱动](#驱动)
-	- [AMD GPU是怎么创建queue的](#amd-gpu是怎么创建queue的)
+  - [AMD GPU是怎么创建queue的](#amd-gpu是怎么创建queue的)
 
 ## 缩略词
 
@@ -348,16 +348,18 @@ categories:
 
 1. **主机准备任务**：
    - 主机将任务描述符或任务标识写入内存。
-   
+
 2. **主机写入Doorbell地址**：
    - 主机向Doorbell地址写入任务描述符的地址或任务标识。
    - 例如，假设Doorbell地址为`0x1234`，主机执行如下写操作：
+
      ```c
      *(volatile uint32_t *)0x1234 = task_descriptor_address;
      ```
 
 3. **GPU检测Doorbell**：
    - GPU监控Doorbell地址，当检测到写操作时，读取写入的数据：
+
      ```c
      uint32_t task_descriptor_address = *(volatile uint32_t *)0x1234;
      ```
@@ -376,42 +378,49 @@ categories:
 #### 1. 硬件资源占用
 
 **有限的Doorbell数量**：
+
 - Doorbell机制依赖于特定的内存映射I/O地址，硬件资源有限。
 - 如果系统中需要大量的Doorbell来支持多个任务队列或多个GPU，硬件资源可能不足，限制了扩展性。
 
 #### 2. 同步开销
 
 **同步操作**：
+
 - 尽管Doorbell机制减少了轮询和中断的延迟，但仍需要处理同步开销。
 - 多个线程或进程在访问同一个Doorbell地址时，需要进行同步，以避免竞态条件（Race Condition），这增加了实现的复杂性。
 
 #### 3. 处理负载
 
 **频繁通知**：
+
 - 在高负载环境中，频繁的Doorbell通知可能导致CPU和GPU之间的频繁上下文切换，增加处理负载。
 - 如果Doorbell通知频率过高，可能导致性能下降，尤其是在任务粒度较小时，频繁的通知和处理会显著增加系统开销。
 
 #### 4. 延迟和吞吐量瓶颈
 
 **PCIe总线延迟**：
+
 - Doorbell通知通过PCIe总线传输，尽管PCIe具有高带宽，但仍存在一定的传输延迟。
 - 在高并发情况下，PCIe总线可能成为瓶颈，影响Doorbell通知的延迟和系统的整体吞吐量。
 
 #### 5. 复杂性和实现成本
 
 **实现复杂性**：
+
 - Doorbell机制的实现需要硬件和软件的紧密配合，增加了设计和实现的复杂性。
 - 需要在硬件中实现特定的寄存器和内存映射逻辑，同时在软件层面处理Doorbell的读写和同步。
 
 #### 6. 数据一致性
 
 **一致性问题**：
+
 - 在多处理器或多核系统中，确保Doorbell通知的一致性和顺序是一个挑战。
 - 需要确保写入Doorbell的操作与对应任务数据的写入顺序一致，以避免数据不一致的问题。
 
 #### 7. 错误处理
 
 **错误处理复杂性**：
+
 - Doorbell机制涉及底层硬件的直接操作，错误处理和恢复机制更加复杂。
 - 在Doorbell通知过程中出现错误或失败时，系统需要有有效的机制来检测和处理这些问题，以保证系统的可靠性。
 
@@ -574,6 +583,7 @@ GC Command Queue是GPU架构中管理和调度图形和计算命令的关键机�
 2. **初始化CR3寄存器**：
    - 在虚拟机启动过程中，GPU驱动程序或VMM将根页表的物理地址写入CR3寄存器。
    - 例如，在x86架构的汇编代码中，初始化CR3寄存器的操作如下：
+
      ```assembly
      mov eax, root_page_table_physical_address
      mov cr3, eax
@@ -638,7 +648,7 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 
 1. **图形渲染**：
    - 在图形渲染过程中，MMHUB管理图形核心对显存的访问，确保渲染数据的高效传输。
-   
+
 2. **计算任务**：
    - 在并行计算任务中，MMHUB协调计算核心对内存的访问，支持高性能计算。
 
@@ -687,13 +697,13 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 
 1. **高性能计算（HPC）**：
    - 在高性能计算系统中，SHUB用于管理和优化大量数据的传输和处理，提高计算效率。
-   
+
 2. **图形处理**：
    - 在图形处理单元（GPU）中，SHUB用于协调图形渲染和计算任务，支持高分辨率和复杂图形的实时处理。
-   
+
 3. **数据中心**：
    - 在数据中心架构中，SHUB用于管理服务器节点之间的通信和数据流，提高数据中心的整体性能和可靠性。
-   
+
 4. **嵌入式系统**：
    - 在嵌入式系统中，SHUB用于简化系统设计，提供统一的数据管理和外设控制接口。
 
@@ -701,13 +711,13 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 
 1. **高效数据管理**：
    - SHUB通过智能路由和调度功能，优化数据传输路径，提高系统数据管理效率。
-   
+
 2. **扩展性和灵活性**：
    - SHUB支持多处理单元和外设的互连，提供良好的系统扩展性和灵活性。
-   
+
 3. **性能提升**：
    - 通过高带宽、低延迟的互连和数据管理，SHUB显著提升系统的整体性能。
-   
+
 4. **简化设计**：
    - 统一的管理接口和外设控制简化了系统设计和集成，降低了开发复杂性。
 
@@ -725,7 +735,8 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 
 **PF（Physical Function）** 是指物理PCIe设备的功能实体，提供完整的配置、管理和控制功能。每个物理设备至少有一个PF，用于执行设备的基本操作和管理任务。
 
-##### 主要特点：
+##### 主要特点
+
 - **完整性**：PF包含设备的完整功能集，能够执行设备的配置、管理和控制。
 - **管理功能**：PF用于配置和管理VF，包括创建、初始化和销毁VF。
 - **直接访问**：PF可以直接访问物理设备的所有资源，包括寄存器、内存和I/O空间。
@@ -734,7 +745,8 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 
 **VF（Virtual Function）** 是由PF创建的虚拟设备，提供物理设备的一部分功能。每个物理设备可以创建多个VF，使得多个虚拟机可以共享同一个物理设备。
 
-##### 主要特点：
+##### 主要特点
+
 - **有限功能**：VF提供物理设备的一部分功能，通常用于处理特定类型的工作负载。
 - **隔离性**：每个VF在硬件层面上是隔离的，多个VF可以独立运行，互不干扰。
 - **性能**：VF通过硬件直通技术（如Intel的VT-d或AMD的IOMMU）直接访问物理设备资源，具有接近原生的性能。
@@ -752,11 +764,14 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 ##### 1. PF管理VF
 
 - **创建和销毁**：PF负责创建和销毁VF。创建VF时，PF分配所需的资源（如内存、I/O空间）并初始化VF。
+
   ```c
   // 伪代码示例
   pf_create_vf(device_id, vf_id, resources);
   ```
+
 - **配置和初始化**：PF初始化VF的配置空间和寄存器，使其能够正常工作。
+
   ```c
   // 伪代码示例
   pf_init_vf(vf_id, config);
@@ -765,6 +780,7 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 ##### 2. VF访问设备资源
 
 - **直接资源访问**：VF通过硬件直通技术直接访问物理设备的资源，如寄存器和内存。VF的访问权限由PF配置和管理。
+
   ```c
   // 伪代码示例
   vf_access_resource(vf_id, resource_id);
@@ -773,11 +789,14 @@ MMHUB在GPU架构中起着中心枢纽的作用，连接GPU的各个计算单元
 ##### 3. 中断和通知机制
 
 - **中断**：VF可以生成中断，通知PF或主机操作系统（Hypervisor）某些事件的发生，如数据包到达或任务完成。PF或Hypervisor处理这些中断，并作出相应的响应。
+
   ```c
   // 伪代码示例
   vf_generate_interrupt(vf_id, event);
   ```
+
 - **通知机制**：PF可以通过配置寄存器或消息传递通知VF执行特定操作。VF响应这些通知，执行相应任务。
+
   ```c
   // 伪代码示例
   pf_notify_vf(vf_id, command);
@@ -880,7 +899,7 @@ There are various reasons for enabling System Cache address translation, includi
 - Address space conversion (smaller endpoint address range to larger system virtual address space)
 - Providing scatter/gather functionality
 - Virtualization support
-- The System Cache includes an ATC function with companion ATS to support virtual address handling. 
+- The System Cache includes an ATC function with companion ATS to support virtual address handling.
 
 ### DRM
 
@@ -913,7 +932,6 @@ LDS指令格式：
 |----|----|----|
 | 13     | DS_WRITE_B32 | MEM[ADDR] = DATA. // Write dword. 32bit |
 |  54    | DS_READ_B32  | RETURN_DATA = MEM[ADDR]. // Dword read. |
-
 
 #### HIP
 
@@ -977,15 +995,14 @@ asm volatile(
 
 #### 汇编
 
-
 这段代码是一个使用 AMD GPU 架构的 HIP 编写的内核函数 `ds_read_b32` 的汇编代码。让我们一行一行地解释并添加注释：
 
 ```assembly
 .text
-.protected	ds_read_b32     ; -- Begin function ds_read_b32
-.globl	ds_read_b32
-.p2align	8
-.type	ds_read_b32,@function
+.protected ds_read_b32     ; -- Begin function ds_read_b32
+.globl ds_read_b32
+.p2align 8
+.type ds_read_b32,@function
 ds_read_b32:                    ; @ds_read_b32
 ```
 
@@ -997,22 +1014,22 @@ ds_read_b32:                    ; @ds_read_b32
 
 ```assembly
 ; %bb.0:                                ; %entry
-	s_load_dwordx2 s[0:1], s[4:5], 0x0
-	v_lshlrev_b32_e32 v1, 2, v0
-	v_add_u32_e32 v2, 0, v1
-	ds_write_b32 v2, v0
-	s_waitcnt lgkmcnt(0)
-	v_mov_b32_e32 v3, s1
-	v_add_co_u32_e32 v0, vcc, s0, v1
-	s_barrier
-	s_waitcnt lgkmcnt(0)
-	;;#ASMSTART
-	ds_read_b32 v2 ,v1
+ s_load_dwordx2 s[0:1], s[4:5], 0x0
+ v_lshlrev_b32_e32 v1, 2, v0
+ v_add_u32_e32 v2, 0, v1
+ ds_write_b32 v2, v0
+ s_waitcnt lgkmcnt(0)
+ v_mov_b32_e32 v3, s1
+ v_add_co_u32_e32 v0, vcc, s0, v1
+ s_barrier
+ s_waitcnt lgkmcnt(0)
+ ;;#ASMSTART
+ ds_read_b32 v2 ,v1
 s_waitcnt lgkmcnt(0)
-	;;#ASMEND
-	v_addc_co_u32_e32 v1, vcc, 0, v3, vcc
-	global_store_dword v[0:1], v2, off
-	s_endpgm
+ ;;#ASMEND
+ v_addc_co_u32_e32 v1, vcc, 0, v3, vcc
+ global_store_dword v[0:1], v2, off
+ s_endpgm
 ```
 
 这里是核函数的主体部分。解释如下：
@@ -1033,46 +1050,46 @@ s_waitcnt lgkmcnt(0)
 - `s_endpgm`: 结束程序。
 
 ```assembly
-.section	.rodata,#alloc
-.p2align	6
+.section .rodata,#alloc
+.p2align 6
 .amdhsa_kernel ds_read_b32
-	.amdhsa_group_segment_fixed_size 0
-	.amdhsa_private_segment_fixed_size 0
-	.amdhsa_kernarg_size 64
-	.amdhsa_user_sgpr_private_segment_buffer 1
-	.amdhsa_user_sgpr_dispatch_ptr 0
-	.amdhsa_user_sgpr_queue_ptr 0
-	.amdhsa_user_sgpr_kernarg_segment_ptr 1
-	.amdhsa_user_sgpr_dispatch_id 0
-	.amdhsa_user_sgpr_flat_scratch_init 0
-	.amdhsa_user_sgpr_private_segment_size 0
-	.amdhsa_system_sgpr_private_segment_wavefront_offset 0
-	.amdhsa_system_sgpr_workgroup_id_x 1
-	.amdhsa_system_sgpr_workgroup_id_y 0
-	.amdhsa_system_sgpr_workgroup_id_z 0
-	.amdhsa_system_sgpr_workgroup_info 0
-	.amdhsa_system_vgpr_workitem_id 0
-	.amdhsa_next_free_vgpr 4
-	.amdhsa_next_free_sgpr 6
-	.amdhsa_reserve_vcc 0
-	.amdhsa_reserve_flat_scratch 0
-	.amdhsa_reserve_xnack_mask 1
-	.amdhsa_float_round_mode_32 0
-	.amdhsa_float_round_mode_16_64 0
-	.amdhsa_float_denorm_mode_32 3
-	.amdhsa_float_denorm_mode_16_64 3
-	.amdhsa_dx10_clamp 1
-	.amdhsa_ieee_mode 1
-	.amdhsa_fp16_overflow 0
-	.amdhsa_exception_fp_ieee_invalid_op 0
-	.amdhsa_exception_fp_denorm_src 0
-	.amdhsa_exception_fp_ieee_div_zero 0
-	.amdhsa_exception_fp_ieee_overflow 0
-	.amd
+ .amdhsa_group_segment_fixed_size 0
+ .amdhsa_private_segment_fixed_size 0
+ .amdhsa_kernarg_size 64
+ .amdhsa_user_sgpr_private_segment_buffer 1
+ .amdhsa_user_sgpr_dispatch_ptr 0
+ .amdhsa_user_sgpr_queue_ptr 0
+ .amdhsa_user_sgpr_kernarg_segment_ptr 1
+ .amdhsa_user_sgpr_dispatch_id 0
+ .amdhsa_user_sgpr_flat_scratch_init 0
+ .amdhsa_user_sgpr_private_segment_size 0
+ .amdhsa_system_sgpr_private_segment_wavefront_offset 0
+ .amdhsa_system_sgpr_workgroup_id_x 1
+ .amdhsa_system_sgpr_workgroup_id_y 0
+ .amdhsa_system_sgpr_workgroup_id_z 0
+ .amdhsa_system_sgpr_workgroup_info 0
+ .amdhsa_system_vgpr_workitem_id 0
+ .amdhsa_next_free_vgpr 4
+ .amdhsa_next_free_sgpr 6
+ .amdhsa_reserve_vcc 0
+ .amdhsa_reserve_flat_scratch 0
+ .amdhsa_reserve_xnack_mask 1
+ .amdhsa_float_round_mode_32 0
+ .amdhsa_float_round_mode_16_64 0
+ .amdhsa_float_denorm_mode_32 3
+ .amdhsa_float_denorm_mode_16_64 3
+ .amdhsa_dx10_clamp 1
+ .amdhsa_ieee_mode 1
+ .amdhsa_fp16_overflow 0
+ .amdhsa_exception_fp_ieee_invalid_op 0
+ .amdhsa_exception_fp_denorm_src 0
+ .amdhsa_exception_fp_ieee_div_zero 0
+ .amdhsa_exception_fp_ieee_overflow 0
+ .amd
 
 hsa_exception_fp_ieee_underflow 0
-	.amdhsa_exception_fp_ieee_inexact 0
-	.amdhsa_exception_int_div_zero 0
+ .amdhsa_exception_fp_ieee_inexact 0
+ .amdhsa_exception_int_div_zero 0
 .end_amdhsa_kernel
 ```
 
@@ -1085,14 +1102,14 @@ hsa_exception_fp_ieee_underflow 0
 
 ```assembly
 .Lfunc_end0:
-	.size	ds_read_b32, .Lfunc_end0-ds_read_b32
+ .size ds_read_b32, .Lfunc_end0-ds_read_b32
                                         ; -- End function
 ```
 
 这是函数的结束标记，表示 `ds_read_b32` 函数的大小为 `.Lfunc_end0 - ds_read_b32`。
 
 ```assembly
-.section	.AMDGPU.csdata
+.section .AMDGPU.csdata
 ; Kernel info:
 ; codeLenInByte = 76
 ; NumSgprs: 8
@@ -1115,13 +1132,13 @@ hsa_exception_fp_ieee_underflow 0
 ; COMPUTE_PGM_RSRC2:TGID_Y_EN: 0
 ; COMPUTE_PGM_RSRC2:TGID_Z_EN: 0
 ; COMPUTE_PGM_RSRC2:TIDIG_COMP_CNT: 0
-.protected	_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE ; @_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE
-.type	_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE,@object
-.section	.rodata._ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE,#alloc
-.weak	_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE
+.protected _ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE ; @_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE
+.type _ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE,@object
+.section .rodata._ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE,#alloc
+.weak _ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE
 _ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE:
-	.zero	1
-	.size	_ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE, 1
+ .zero 1
+ .size _ZN17__HIP_CoordinatesI15__HIP_ThreadIdxE1xE, 1
 ```
 
 这部分包含了 AMDGPU 的一些元数据，例如内核信息、寄存器使用情况、内存占用等信息。也包含了对一些 HIP 相关的符号和数据的定义。
@@ -1143,6 +1160,7 @@ HSAKMT（HSA Kernel Mode Thunk）是一种用于支持异构系统架构（HSA�
 统一内存寻址是一种使CPU和GPU（以及其他可能的处理器）可以共享相同物理内存的技术。在传统的系统中，CPU和GPU通常拥有独立的内存空间，数据必须在这些内存空间之间显式复制，这会导致性能下降和编程复杂性增加。通过实现统一内存寻址，HSA架构允许所有的处理器看到一个连续且一致的内存地址空间，从而简化了数据共享和通信。处理器可以直接访问共享内存中的数据，无需进行数据复制，这显著提高了效率和响应速度。
 
 #### HSAKMT的角色
+
 HSAKMT是Linux下的一种内核模式驱动程序，提供了一套接口（thunks），允许用户空间应用程序与HSA兼容硬件进行交互。这些接口支持包括但不限于内存管理、队列管理、信号量和中断管理等功能。在内存管理方面，HSAKMT处理以下关键功能：
 
 - **内存分配和释放：** 管理统一内存的分配和释放，确保不同处理器可以高效访问。
@@ -1238,7 +1256,6 @@ NVLink 是由 NVIDIA 开发的一种高带宽、低延迟的数据传输接口�
 - **低延迟：** 直接连接 GPU 间或 GPU 与 CPU 之间的接口减少了通信延迟。
 - **多连接配置：** 支持将多个 GPU 以链式或网格形式互连，提高并行处理能力。
 
-
 NVLink 与 RDMA 的联系：虽然 NVLink 主要用于连接 GPU（或 GPU 与 CPU），而 RDMA 用于优化网络中的计算机间通信，但两者可以结合使用，以提高整体系统的数据处理能力和效率：
 
 1. **数据中心和云环境：** 在包含多个 GPU 节点的数据中心，NVLink 可用于加速节点内部的 GPU 通信，而 RDMA 可以用来优化节点之间的通信。
@@ -1247,6 +1264,7 @@ NVLink 与 RDMA 的联系：虽然 NVLink 主要用于连接 GPU（或 GPU 与 C
 通过这种方式，两种技术互补，共同提高了处理速度和效率，特别是在深度学习、科学计算等要求高并行处理能力的场景中。这种组合允许大规模系统中的快速数据传输，同时优化资源使用，实现高效的数据处理和计算性能。
 
 ### RoCE（RDMA over Converged Ethernet）
+
 RoCE 是在传统以太网基础上实现的 RDMA 技术。它允许在以太网环境中实施 RDMA，这意味着可以在不需要专门硬件（如 InfiniBand）的情况下，利用现有的以太网基础设施实现 RDMA 的优势。特点：
 
 - **以太网兼容：** 使用现有的以太网技术，降低实施 RDMA 的门槛和成本。
@@ -1323,7 +1341,7 @@ t1.c = 4
 ### AMD GPU是怎么创建queue的
 
 <details>
-<summary>代码</summary> 
+<summary>代码</summary>
 
 ```c
 // ----------------------------------------------------------------------------------------------------------------------------------
@@ -1331,385 +1349,385 @@ t1.c = 4
 // ----------------------------------------------------------------------------------------------------------------------------------
 class BaseQueue
 --> HSAKMT_STATUS Create(unsigned int NodeId, unsigned int size = DEFAULT_QUEUE_SIZE, HSAuint64 *pointers = NULL);
-	--> memset(&m_Resources, 0, sizeof(m_Resources));
-	--> hsaKmtCreateQueue(NodeId, type, DEFAULT_QUEUE_PERCENTAGE, DEFAULT_PRIORITY, m_QueueBuf->As<unsigned int*>(), m_QueueBuf->Size(), NULL, &m_Resources);
+ --> memset(&m_Resources, 0, sizeof(m_Resources));
+ --> hsaKmtCreateQueue(NodeId, type, DEFAULT_QUEUE_PERCENTAGE, DEFAULT_PRIORITY, m_QueueBuf->As<unsigned int*>(), m_QueueBuf->Size(), NULL, &m_Resources);
 // ----------------------------------------------------------------------------------------------------------------------------------
 //                            Thunk
 // ----------------------------------------------------------------------------------------------------------------------------------
-		--> struct kfd_ioctl_create_queue_args args = {0};
-		--> handle_concrete_asic(q, &args, NodeId, Event, QueueResource->ErrorReason);
-		--> args.read_pointer_address = QueueResource->QueueRptrValue;
-			args.write_pointer_address = QueueResource->QueueWptrValue;
-			args.ring_base_address = (uintptr_t)QueueAddress;
-			args.ring_size = QueueSizeInBytes;
-			args.queue_percentage = QueuePercentage;
-			args.queue_priority = priority_map[Priority+3];
-		--> err = kmtIoctl(kfd_fd, AMDKFD_IOC_CREATE_QUEUE, &args);
+  --> struct kfd_ioctl_create_queue_args args = {0};
+  --> handle_concrete_asic(q, &args, NodeId, Event, QueueResource->ErrorReason);
+  --> args.read_pointer_address = QueueResource->QueueRptrValue;
+   args.write_pointer_address = QueueResource->QueueWptrValue;
+   args.ring_base_address = (uintptr_t)QueueAddress;
+   args.ring_size = QueueSizeInBytes;
+   args.queue_percentage = QueuePercentage;
+   args.queue_priority = priority_map[Priority+3];
+  --> err = kmtIoctl(kfd_fd, AMDKFD_IOC_CREATE_QUEUE, &args);
 // ----------------------------------------------------------------------------------------------------------------------------------
 //                            Driver
 // ----------------------------------------------------------------------------------------------------------------------------------
-			--> static int kfd_ioctl_create_queue(struct file *filep, struct kfd_process *p, void *data)
-				--> set_queue_properties_from_user(&q_properties, args);
-					--> q_properties->is_interop = false;
-						q_properties->is_gws = false;
-						q_properties->queue_percent = args->queue_percentage;
-						q_properties->priority = args->queue_priority;
-						q_properties->queue_address = args->ring_base_address;
-						q_properties->queue_size = args->ring_size;
-						q_properties->read_ptr = (uint32_t *) args->read_pointer_address;
-						q_properties->write_ptr = (uint32_t *) args->write_pointer_address;
-						q_properties->eop_ring_buffer_address = args->eop_buffer_address;
-						q_properties->eop_ring_buffer_size = args->eop_buffer_size;
-						q_properties->ctx_save_restore_area_address = args->ctx_save_restore_address;
-						q_properties->ctx_save_restore_area_size = args->ctx_save_restore_size;
-						q_properties->ctl_stack_size = args->ctl_stack_size;
-						//...
-				--> kfd_process_device_data_by_id()
-				--> kfd_bind_process_to_device()
-				--> pqm_create_queue(&p->pqm, dev, filep, &q_properties, &queue_id, NULL, NULL, NULL, &doorbell_offset_in_process);
-					--> struct kfd_process_device *pdd = kfd_get_process_device_data()
-						// PM4Queue.hpp: Type is  HSA_QUEUE_COMPUTE --> KFD_IOC_QUEUE_TYPE_COMPUTE --> KFD_QUEUE_TYPE_COMPUTE
-						// SDMAQueue.hpp: Type is HSA_QUEUE_SDMA    --> KFD_IOC_QUEUE_TYPE_SDMA    --> KFD_QUEUE_TYPE_SDMA
-					--> init_user_queue(pqm, dev, &q, properties, f, *qid);
-					--> kfd_process_drain_interrupts(pdd);
-					--> retval = dev->dqm->ops.create_queue(dev->dqm, q, &pdd->qpd, q_data, restore_mqd, restore_ctl_stack);
-					    // dqm->ops.create_queue = create_queue_cpsch;
-						--> create_queue_cpsch()
-							--> allocate_doorbell()
-							--> mqd_mgr->init_mqd(mqd_mgr, &q->mqd, q->mqd_mem_obj, &q->gart_mqd_addr, &q->properties);
-							--> list_add(&q->list, &qpd->queues_list);
-							--> increment_queue_count(dqm, qpd, q);
-							--> execute_queues_cpsch(dqm, KFD_UNMAP_QUEUES_FILTER_DYNAMIC_QUEUES, 0, USE_DEFAULT_GRACE_PERIOD);
-								--> retval = unmap_queues_cpsch(dqm, filter, filter_param, grace_period, false);
-									--> retval = pm_send_unmap_queue(&dqm->packet_mgr, filter, filter_param, reset);
-									--> pm_send_query_status(&dqm->packet_mgr, dqm->fence_gpu_addr, KFD_FENCE_COMPLETED);
-									--> retval = amdkfd_fence_wait_timeout(dqm->fence_addr, KFD_FENCE_COMPLETED, queue_preemption_timeout_ms);
-									--> pm_release_ib(&dqm->packet_mgr);
-								--> map_queues_cpsch(dqm);
-									--> pm_send_runlist(&dqm->packet_mgr, &dqm->queues);
-										--> retval = pm_create_runlist_ib(pm, dqm_queues, &rl_gpu_ib_addr, &rl_ib_size);
-										--> retval = kq_acquire_packet_buffer(pm->priv_queue, ket_size_dwords, &rl_buffer);
-										--> retval = pm->pmf->runlist(pm, rl_buffer, rl_gpu_ib_addr, rl_ib_size / sizeof(uint32_t), false);
-											--> pm_runlist_v9()
-										--> kq_submit_packet(pm->priv_queue);
-											--> write_kernel_doorbell()
-												--> writel(value, db);
-													--> __io_bw();
-														__raw_writel((u32 __force)__cpu_to_le32(value), addr);
-														__io_aw();
-									--> dqm->active_runlist = true;
-							--> deallocate_doorbell(qpd, q);
+   --> static int kfd_ioctl_create_queue(struct file *filep, struct kfd_process *p, void *data)
+    --> set_queue_properties_from_user(&q_properties, args);
+     --> q_properties->is_interop = false;
+      q_properties->is_gws = false;
+      q_properties->queue_percent = args->queue_percentage;
+      q_properties->priority = args->queue_priority;
+      q_properties->queue_address = args->ring_base_address;
+      q_properties->queue_size = args->ring_size;
+      q_properties->read_ptr = (uint32_t *) args->read_pointer_address;
+      q_properties->write_ptr = (uint32_t *) args->write_pointer_address;
+      q_properties->eop_ring_buffer_address = args->eop_buffer_address;
+      q_properties->eop_ring_buffer_size = args->eop_buffer_size;
+      q_properties->ctx_save_restore_area_address = args->ctx_save_restore_address;
+      q_properties->ctx_save_restore_area_size = args->ctx_save_restore_size;
+      q_properties->ctl_stack_size = args->ctl_stack_size;
+      //...
+    --> kfd_process_device_data_by_id()
+    --> kfd_bind_process_to_device()
+    --> pqm_create_queue(&p->pqm, dev, filep, &q_properties, &queue_id, NULL, NULL, NULL, &doorbell_offset_in_process);
+     --> struct kfd_process_device *pdd = kfd_get_process_device_data()
+      // PM4Queue.hpp: Type is  HSA_QUEUE_COMPUTE --> KFD_IOC_QUEUE_TYPE_COMPUTE --> KFD_QUEUE_TYPE_COMPUTE
+      // SDMAQueue.hpp: Type is HSA_QUEUE_SDMA    --> KFD_IOC_QUEUE_TYPE_SDMA    --> KFD_QUEUE_TYPE_SDMA
+     --> init_user_queue(pqm, dev, &q, properties, f, *qid);
+     --> kfd_process_drain_interrupts(pdd);
+     --> retval = dev->dqm->ops.create_queue(dev->dqm, q, &pdd->qpd, q_data, restore_mqd, restore_ctl_stack);
+         // dqm->ops.create_queue = create_queue_cpsch;
+      --> create_queue_cpsch()
+       --> allocate_doorbell()
+       --> mqd_mgr->init_mqd(mqd_mgr, &q->mqd, q->mqd_mem_obj, &q->gart_mqd_addr, &q->properties);
+       --> list_add(&q->list, &qpd->queues_list);
+       --> increment_queue_count(dqm, qpd, q);
+       --> execute_queues_cpsch(dqm, KFD_UNMAP_QUEUES_FILTER_DYNAMIC_QUEUES, 0, USE_DEFAULT_GRACE_PERIOD);
+        --> retval = unmap_queues_cpsch(dqm, filter, filter_param, grace_period, false);
+         --> retval = pm_send_unmap_queue(&dqm->packet_mgr, filter, filter_param, reset);
+         --> pm_send_query_status(&dqm->packet_mgr, dqm->fence_gpu_addr, KFD_FENCE_COMPLETED);
+         --> retval = amdkfd_fence_wait_timeout(dqm->fence_addr, KFD_FENCE_COMPLETED, queue_preemption_timeout_ms);
+         --> pm_release_ib(&dqm->packet_mgr);
+        --> map_queues_cpsch(dqm);
+         --> pm_send_runlist(&dqm->packet_mgr, &dqm->queues);
+          --> retval = pm_create_runlist_ib(pm, dqm_queues, &rl_gpu_ib_addr, &rl_ib_size);
+          --> retval = kq_acquire_packet_buffer(pm->priv_queue, ket_size_dwords, &rl_buffer);
+          --> retval = pm->pmf->runlist(pm, rl_buffer, rl_gpu_ib_addr, rl_ib_size / sizeof(uint32_t), false);
+           --> pm_runlist_v9()
+          --> kq_submit_packet(pm->priv_queue);
+           --> write_kernel_doorbell()
+            --> writel(value, db);
+             --> __io_bw();
+              __raw_writel((u32 __force)__cpu_to_le32(value), addr);
+              __io_aw();
+         --> dqm->active_runlist = true;
+       --> deallocate_doorbell(qpd, q);
 
 
 /** Ioctl table */
 static const struct amdkfd_ioctl_desc amdkfd_ioctls[] = {
-	//...
-	AMDKFD_IOCTL_DEF(AMDKFD_IOC_CREATE_QUEUE,
-			kfd_ioctl_create_queue, 0),
-	//...
+ //...
+ AMDKFD_IOCTL_DEF(AMDKFD_IOC_CREATE_QUEUE,
+   kfd_ioctl_create_queue, 0),
+ //...
 }
 
 amdgpu_amdkfd_device_init()
 --> adev->kfd.init_complete = kgd2kfd_device_init(adev->kfd.dev, adev_to_drm(adev), &gpu_resources);
-	--> kfd->dqm = device_queue_manager_init(kfd);
-		--> case KFD_SCHED_POLICY_HWS_NO_OVERSUBSCRIPTION:
-				/* initialize dqm for cp scheduling */
-				dqm->ops.create_queue = create_queue_cpsch;
-				dqm->ops.initialize = initialize_cpsch;
-				dqm->ops.start = start_cpsch;
-				dqm->ops.stop = stop_cpsch;
-				dqm->ops.pre_reset = pre_reset;
-				dqm->ops.destroy_queue = destroy_queue_cpsch;
-				dqm->ops.update_queue = update_queue;
-				dqm->ops.register_process = register_process;
-				dqm->ops.unregister_process = unregister_process;
-				dqm->ops.uninitialize = uninitialize;
-				dqm->ops.create_kernel_queue = create_kernel_queue_cpsch;
-				dqm->ops.destroy_kernel_queue = destroy_kernel_queue_cpsch;
-				dqm->ops.set_cache_memory_policy = set_cache_memory_policy;
-				dqm->ops.process_termination = process_termination_cpsch;
-				dqm->ops.evict_process_queues = evict_process_queues_cpsch;
-				dqm->ops.restore_process_queues = restore_process_queues_cpsch;
-				dqm->ops.get_wave_state = get_wave_state;
-				dqm->ops.reset_queues = reset_queues_cpsch;
-				dqm->ops.get_queue_checkpoint_info = get_queue_checkpoint_info;
-				dqm->ops.checkpoint_mqd = checkpoint_mqd;
-				break;
-	--> kfd_resume()
-		--> kfd->dqm->ops.start(kfd->dqm);
-			--> retval = pm_init(&dqm->packet_mgr, dqm);
-				--> pm->priv_queue = kernel_queue_init(dqm->dev, KFD_QUEUE_TYPE_HIQ);
-					--> kq_initialize(kq, dev, type, KFD_KERNEL_QUEUE_SIZE)
-						--> kq->mqd_mgr->init_mqd(kq->mqd_mgr, &kq->queue->mqd,
-													kq->queue->mqd_mem_obj,
-													&kq->queue->gart_mqd_addr,
-													&kq->queue->properties);
-		--> set_sched_resources(dqm)
-			--> return pm_send_set_resources(&dqm->packet_mgr, &res);
-				--> retval = pm->pmf->set_resources(pm, buffer, res);
-					--> pm_set_resources_v9()
+ --> kfd->dqm = device_queue_manager_init(kfd);
+  --> case KFD_SCHED_POLICY_HWS_NO_OVERSUBSCRIPTION:
+    /* initialize dqm for cp scheduling */
+    dqm->ops.create_queue = create_queue_cpsch;
+    dqm->ops.initialize = initialize_cpsch;
+    dqm->ops.start = start_cpsch;
+    dqm->ops.stop = stop_cpsch;
+    dqm->ops.pre_reset = pre_reset;
+    dqm->ops.destroy_queue = destroy_queue_cpsch;
+    dqm->ops.update_queue = update_queue;
+    dqm->ops.register_process = register_process;
+    dqm->ops.unregister_process = unregister_process;
+    dqm->ops.uninitialize = uninitialize;
+    dqm->ops.create_kernel_queue = create_kernel_queue_cpsch;
+    dqm->ops.destroy_kernel_queue = destroy_kernel_queue_cpsch;
+    dqm->ops.set_cache_memory_policy = set_cache_memory_policy;
+    dqm->ops.process_termination = process_termination_cpsch;
+    dqm->ops.evict_process_queues = evict_process_queues_cpsch;
+    dqm->ops.restore_process_queues = restore_process_queues_cpsch;
+    dqm->ops.get_wave_state = get_wave_state;
+    dqm->ops.reset_queues = reset_queues_cpsch;
+    dqm->ops.get_queue_checkpoint_info = get_queue_checkpoint_info;
+    dqm->ops.checkpoint_mqd = checkpoint_mqd;
+    break;
+ --> kfd_resume()
+  --> kfd->dqm->ops.start(kfd->dqm);
+   --> retval = pm_init(&dqm->packet_mgr, dqm);
+    --> pm->priv_queue = kernel_queue_init(dqm->dev, KFD_QUEUE_TYPE_HIQ);
+     --> kq_initialize(kq, dev, type, KFD_KERNEL_QUEUE_SIZE)
+      --> kq->mqd_mgr->init_mqd(kq->mqd_mgr, &kq->queue->mqd,
+             kq->queue->mqd_mem_obj,
+             &kq->queue->gart_mqd_addr,
+             &kq->queue->properties);
+  --> set_sched_resources(dqm)
+   --> return pm_send_set_resources(&dqm->packet_mgr, &res);
+    --> retval = pm->pmf->set_resources(pm, buffer, res);
+     --> pm_set_resources_v9()
 
 
 static int pm_map_process_v9(struct packet_manager *pm,
-		uint32_t *buffer, struct qcm_process_device *qpd)
+  uint32_t *buffer, struct qcm_process_device *qpd)
 {
-	struct pm4_mes_map_process *packet;
-	uint64_t vm_page_table_base_addr = qpd->page_table_base;
-	struct kfd_dev *kfd = pm->dqm->dev;
-	struct kfd_process_device *pdd =
-			container_of(qpd, struct kfd_process_device, qpd);
+ struct pm4_mes_map_process *packet;
+ uint64_t vm_page_table_base_addr = qpd->page_table_base;
+ struct kfd_dev *kfd = pm->dqm->dev;
+ struct kfd_process_device *pdd =
+   container_of(qpd, struct kfd_process_device, qpd);
 
-	packet = (struct pm4_mes_map_process *)buffer;
-	memset(buffer, 0, sizeof(struct pm4_mes_map_process));
-	packet->header.u32All = pm_build_pm4_header(IT_MAP_PROCESS,
-					sizeof(struct pm4_mes_map_process));
-	packet->bitfields2.diq_enable = (qpd->is_debug) ? 1 : 0;
-	packet->bitfields2.process_quantum = 10;
-	packet->bitfields2.pasid = qpd->pqm->process->pasid;
-	packet->bitfields14.gds_size = qpd->gds_size & 0x3F;
-	packet->bitfields14.gds_size_hi = (qpd->gds_size >> 6) & 0xF;
-	packet->bitfields14.num_gws = (qpd->mapped_gws_queue) ? qpd->num_gws : 0;
-	packet->bitfields14.num_oac = qpd->num_oac;
-	packet->bitfields14.sdma_enable = 1;
-	packet->bitfields14.num_queues = (qpd->is_debug) ? 0 : qpd->queue_count;
+ packet = (struct pm4_mes_map_process *)buffer;
+ memset(buffer, 0, sizeof(struct pm4_mes_map_process));
+ packet->header.u32All = pm_build_pm4_header(IT_MAP_PROCESS,
+     sizeof(struct pm4_mes_map_process));
+ packet->bitfields2.diq_enable = (qpd->is_debug) ? 1 : 0;
+ packet->bitfields2.process_quantum = 10;
+ packet->bitfields2.pasid = qpd->pqm->process->pasid;
+ packet->bitfields14.gds_size = qpd->gds_size & 0x3F;
+ packet->bitfields14.gds_size_hi = (qpd->gds_size >> 6) & 0xF;
+ packet->bitfields14.num_gws = (qpd->mapped_gws_queue) ? qpd->num_gws : 0;
+ packet->bitfields14.num_oac = qpd->num_oac;
+ packet->bitfields14.sdma_enable = 1;
+ packet->bitfields14.num_queues = (qpd->is_debug) ? 0 : qpd->queue_count;
 
-	if (kfd->dqm->trap_debug_vmid && pdd->process->debug_trap_enabled &&
-			pdd->process->runtime_info.runtime_state == DEBUG_RUNTIME_STATE_ENABLED) {
-		packet->bitfields2.debug_vmid = kfd->dqm->trap_debug_vmid;
-		packet->bitfields2.new_debug = 1;
-	}
+ if (kfd->dqm->trap_debug_vmid && pdd->process->debug_trap_enabled &&
+   pdd->process->runtime_info.runtime_state == DEBUG_RUNTIME_STATE_ENABLED) {
+  packet->bitfields2.debug_vmid = kfd->dqm->trap_debug_vmid;
+  packet->bitfields2.new_debug = 1;
+ }
 
-	packet->sh_mem_config = qpd->sh_mem_config;
-	packet->sh_mem_bases = qpd->sh_mem_bases;
-	if (qpd->tba_addr) {
-		packet->sq_shader_tba_lo = lower_32_bits(qpd->tba_addr >> 8);
-		/* On GFX9, unlike GFX10, bit TRAP_EN of SQ_SHADER_TBA_HI is
-		 * not defined, so setting it won't do any harm.
-		 */
-		packet->sq_shader_tba_hi = upper_32_bits(qpd->tba_addr >> 8)
-				| 1 << SQ_SHADER_TBA_HI__TRAP_EN__SHIFT;
+ packet->sh_mem_config = qpd->sh_mem_config;
+ packet->sh_mem_bases = qpd->sh_mem_bases;
+ if (qpd->tba_addr) {
+  packet->sq_shader_tba_lo = lower_32_bits(qpd->tba_addr >> 8);
+  /* On GFX9, unlike GFX10, bit TRAP_EN of SQ_SHADER_TBA_HI is
+   * not defined, so setting it won't do any harm.
+   */
+  packet->sq_shader_tba_hi = upper_32_bits(qpd->tba_addr >> 8)
+    | 1 << SQ_SHADER_TBA_HI__TRAP_EN__SHIFT;
 
-		packet->sq_shader_tma_lo = lower_32_bits(qpd->tma_addr >> 8);
-		packet->sq_shader_tma_hi = upper_32_bits(qpd->tma_addr >> 8);
-	}
+  packet->sq_shader_tma_lo = lower_32_bits(qpd->tma_addr >> 8);
+  packet->sq_shader_tma_hi = upper_32_bits(qpd->tma_addr >> 8);
+ }
 
-	packet->gds_addr_lo = lower_32_bits(qpd->gds_context_area);
-	packet->gds_addr_hi = upper_32_bits(qpd->gds_context_area);
+ packet->gds_addr_lo = lower_32_bits(qpd->gds_context_area);
+ packet->gds_addr_hi = upper_32_bits(qpd->gds_context_area);
 
-	packet->vm_context_page_table_base_addr_lo32 =
-			lower_32_bits(vm_page_table_base_addr);
-	packet->vm_context_page_table_base_addr_hi32 =
-			upper_32_bits(vm_page_table_base_addr);
+ packet->vm_context_page_table_base_addr_lo32 =
+   lower_32_bits(vm_page_table_base_addr);
+ packet->vm_context_page_table_base_addr_hi32 =
+   upper_32_bits(vm_page_table_base_addr);
 
-	return 0;
+ return 0;
 }
 
 static int pm_runlist_v9(struct packet_manager *pm, uint32_t *buffer,
-			uint64_t ib, size_t ib_size_in_dwords, bool chain)
+   uint64_t ib, size_t ib_size_in_dwords, bool chain)
 {
-	struct pm4_mes_runlist *packet;
+ struct pm4_mes_runlist *packet;
 
-	int concurrent_proc_cnt = 0;
-	struct kfd_dev *kfd = pm->dqm->dev;
+ int concurrent_proc_cnt = 0;
+ struct kfd_dev *kfd = pm->dqm->dev;
 
-	/* Determine the number of processes to map together to HW:
-	 * it can not exceed the number of VMIDs available to the
-	 * scheduler, and it is determined by the smaller of the number
-	 * of processes in the runlist and kfd module parameter
-	 * hws_max_conc_proc.
-	 * Note: the arbitration between the number of VMIDs and
-	 * hws_max_conc_proc has been done in
-	 * kgd2kfd_device_init().
-	 */
-	concurrent_proc_cnt = min(pm->dqm->processes_count,
-			kfd->max_proc_per_quantum);
+ /* Determine the number of processes to map together to HW:
+  * it can not exceed the number of VMIDs available to the
+  * scheduler, and it is determined by the smaller of the number
+  * of processes in the runlist and kfd module parameter
+  * hws_max_conc_proc.
+  * Note: the arbitration between the number of VMIDs and
+  * hws_max_conc_proc has been done in
+  * kgd2kfd_device_init().
+  */
+ concurrent_proc_cnt = min(pm->dqm->processes_count,
+   kfd->max_proc_per_quantum);
 
-	packet = (struct pm4_mes_runlist *)buffer;
+ packet = (struct pm4_mes_runlist *)buffer;
 
-	memset(buffer, 0, sizeof(struct pm4_mes_runlist));
-	packet->header.u32All = pm_build_pm4_header(IT_RUN_LIST,
-						sizeof(struct pm4_mes_runlist));
+ memset(buffer, 0, sizeof(struct pm4_mes_runlist));
+ packet->header.u32All = pm_build_pm4_header(IT_RUN_LIST,
+      sizeof(struct pm4_mes_runlist));
 
-	packet->bitfields4.ib_size = ib_size_in_dwords;
-	packet->bitfields4.chain = chain ? 1 : 0;
-	packet->bitfields4.offload_polling = 0;
-	packet->bitfields4.chained_runlist_idle_disable = chain ? 1 : 0;
-	packet->bitfields4.valid = 1;
-	packet->bitfields4.process_cnt = concurrent_proc_cnt;
-	packet->ordinal2 = lower_32_bits(ib);
-	packet->ib_base_hi = upper_32_bits(ib);
+ packet->bitfields4.ib_size = ib_size_in_dwords;
+ packet->bitfields4.chain = chain ? 1 : 0;
+ packet->bitfields4.offload_polling = 0;
+ packet->bitfields4.chained_runlist_idle_disable = chain ? 1 : 0;
+ packet->bitfields4.valid = 1;
+ packet->bitfields4.process_cnt = concurrent_proc_cnt;
+ packet->ordinal2 = lower_32_bits(ib);
+ packet->ib_base_hi = upper_32_bits(ib);
 
-	return 0;
+ return 0;
 }
 
 static int pm_set_resources_v9(struct packet_manager *pm, uint32_t *buffer,
-				struct scheduling_resources *res)
+    struct scheduling_resources *res)
 {
-	struct pm4_mes_set_resources *packet;
+ struct pm4_mes_set_resources *packet;
 
-	packet = (struct pm4_mes_set_resources *)buffer;
-	memset(buffer, 0, sizeof(struct pm4_mes_set_resources));
+ packet = (struct pm4_mes_set_resources *)buffer;
+ memset(buffer, 0, sizeof(struct pm4_mes_set_resources));
 
-	packet->header.u32All = pm_build_pm4_header(IT_SET_RESOURCES,
-					sizeof(struct pm4_mes_set_resources));
+ packet->header.u32All = pm_build_pm4_header(IT_SET_RESOURCES,
+     sizeof(struct pm4_mes_set_resources));
 
-	packet->bitfields2.queue_type =
-			queue_type__mes_set_resources__hsa_interface_queue_hiq;
-	packet->bitfields2.vmid_mask = res->vmid_mask;
-	packet->bitfields2.unmap_latency = KFD_UNMAP_LATENCY_MS / 100;
-	packet->bitfields7.oac_mask = res->oac_mask;
-	packet->bitfields8.gds_heap_base = res->gds_heap_base;
-	packet->bitfields8.gds_heap_size = res->gds_heap_size;
+ packet->bitfields2.queue_type =
+   queue_type__mes_set_resources__hsa_interface_queue_hiq;
+ packet->bitfields2.vmid_mask = res->vmid_mask;
+ packet->bitfields2.unmap_latency = KFD_UNMAP_LATENCY_MS / 100;
+ packet->bitfields7.oac_mask = res->oac_mask;
+ packet->bitfields8.gds_heap_base = res->gds_heap_base;
+ packet->bitfields8.gds_heap_size = res->gds_heap_size;
 
-	packet->gws_mask_lo = lower_32_bits(res->gws_mask);
-	packet->gws_mask_hi = upper_32_bits(res->gws_mask);
+ packet->gws_mask_lo = lower_32_bits(res->gws_mask);
+ packet->gws_mask_hi = upper_32_bits(res->gws_mask);
 
-	packet->queue_mask_lo = lower_32_bits(res->queue_mask);
-	packet->queue_mask_hi = upper_32_bits(res->queue_mask);
+ packet->queue_mask_lo = lower_32_bits(res->queue_mask);
+ packet->queue_mask_hi = upper_32_bits(res->queue_mask);
 
-	return 0;
+ return 0;
 }
 
 static int pm_map_queues_v9(struct packet_manager *pm, uint32_t *buffer,
-		struct queue *q, bool is_static)
+  struct queue *q, bool is_static)
 {
-	struct pm4_mes_map_queues *packet;
-	bool use_static = is_static;
+ struct pm4_mes_map_queues *packet;
+ bool use_static = is_static;
 
-	packet = (struct pm4_mes_map_queues *)buffer;
-	memset(buffer, 0, sizeof(struct pm4_mes_map_queues));
+ packet = (struct pm4_mes_map_queues *)buffer;
+ memset(buffer, 0, sizeof(struct pm4_mes_map_queues));
 
-	packet->header.u32All = pm_build_pm4_header(IT_MAP_QUEUES,
-					sizeof(struct pm4_mes_map_queues));
-	packet->bitfields2.num_queues = 1;
-	packet->bitfields2.queue_sel =
-		queue_sel__mes_map_queues__map_to_hws_determined_queue_slots_vi;
+ packet->header.u32All = pm_build_pm4_header(IT_MAP_QUEUES,
+     sizeof(struct pm4_mes_map_queues));
+ packet->bitfields2.num_queues = 1;
+ packet->bitfields2.queue_sel =
+  queue_sel__mes_map_queues__map_to_hws_determined_queue_slots_vi;
 
-	packet->bitfields2.engine_sel =
-		engine_sel__mes_map_queues__compute_vi;
-	packet->bitfields2.gws_control_queue = q->gws ? 1 : 0;
-	packet->bitfields2.extended_engine_sel =
-		extended_engine_sel__mes_map_queues__legacy_engine_sel;
-	packet->bitfields2.queue_type =
-		queue_type__mes_map_queues__normal_compute_vi;
+ packet->bitfields2.engine_sel =
+  engine_sel__mes_map_queues__compute_vi;
+ packet->bitfields2.gws_control_queue = q->gws ? 1 : 0;
+ packet->bitfields2.extended_engine_sel =
+  extended_engine_sel__mes_map_queues__legacy_engine_sel;
+ packet->bitfields2.queue_type =
+  queue_type__mes_map_queues__normal_compute_vi;
 
-	switch (q->properties.type) {
-	case KFD_QUEUE_TYPE_COMPUTE:
-		if (use_static)
-			packet->bitfields2.queue_type =
-		queue_type__mes_map_queues__normal_latency_static_queue_vi;
-		break;
-	case KFD_QUEUE_TYPE_DIQ:
-		packet->bitfields2.queue_type =
-			queue_type__mes_map_queues__debug_interface_queue_vi;
-		break;
-	case KFD_QUEUE_TYPE_SDMA:
-	case KFD_QUEUE_TYPE_SDMA_XGMI:
-		use_static = false; /* no static queues under SDMA */
-		if (q->properties.sdma_engine_id < 2 && !pm_use_ext_eng(q->device))
-			packet->bitfields2.engine_sel = q->properties.sdma_engine_id +
-				engine_sel__mes_map_queues__sdma0_vi;
-		else {
-			packet->bitfields2.extended_engine_sel =
-				extended_engine_sel__mes_map_queues__sdma0_to_7_sel;
-			packet->bitfields2.engine_sel = q->properties.sdma_engine_id;
-		}
-		break;
-	default:
-		WARN(1, "queue type %d", q->properties.type);
-		return -EINVAL;
-	}
-	packet->bitfields3.doorbell_offset =
-			q->properties.doorbell_off;
+ switch (q->properties.type) {
+ case KFD_QUEUE_TYPE_COMPUTE:
+  if (use_static)
+   packet->bitfields2.queue_type =
+  queue_type__mes_map_queues__normal_latency_static_queue_vi;
+  break;
+ case KFD_QUEUE_TYPE_DIQ:
+  packet->bitfields2.queue_type =
+   queue_type__mes_map_queues__debug_interface_queue_vi;
+  break;
+ case KFD_QUEUE_TYPE_SDMA:
+ case KFD_QUEUE_TYPE_SDMA_XGMI:
+  use_static = false; /* no static queues under SDMA */
+  if (q->properties.sdma_engine_id < 2 && !pm_use_ext_eng(q->device))
+   packet->bitfields2.engine_sel = q->properties.sdma_engine_id +
+    engine_sel__mes_map_queues__sdma0_vi;
+  else {
+   packet->bitfields2.extended_engine_sel =
+    extended_engine_sel__mes_map_queues__sdma0_to_7_sel;
+   packet->bitfields2.engine_sel = q->properties.sdma_engine_id;
+  }
+  break;
+ default:
+  WARN(1, "queue type %d", q->properties.type);
+  return -EINVAL;
+ }
+ packet->bitfields3.doorbell_offset =
+   q->properties.doorbell_off;
 
-	packet->mqd_addr_lo =
-			lower_32_bits(q->gart_mqd_addr);
+ packet->mqd_addr_lo =
+   lower_32_bits(q->gart_mqd_addr);
 
-	packet->mqd_addr_hi =
-			upper_32_bits(q->gart_mqd_addr);
+ packet->mqd_addr_hi =
+   upper_32_bits(q->gart_mqd_addr);
 
-	packet->wptr_addr_lo =
-			lower_32_bits((uint64_t)q->properties.write_ptr);
+ packet->wptr_addr_lo =
+   lower_32_bits((uint64_t)q->properties.write_ptr);
 
-	packet->wptr_addr_hi =
-			upper_32_bits((uint64_t)q->properties.write_ptr);
+ packet->wptr_addr_hi =
+   upper_32_bits((uint64_t)q->properties.write_ptr);
 
-	return 0;
+ return 0;
 }
 
 static int pm_unmap_queues_v9(struct packet_manager *pm, uint32_t *buffer,
-			enum kfd_unmap_queues_filter filter,
-			uint32_t filter_param, bool reset)
+   enum kfd_unmap_queues_filter filter,
+   uint32_t filter_param, bool reset)
 {
-	struct pm4_mes_unmap_queues *packet;
+ struct pm4_mes_unmap_queues *packet;
 
-	packet = (struct pm4_mes_unmap_queues *)buffer;
-	memset(buffer, 0, sizeof(struct pm4_mes_unmap_queues));
+ packet = (struct pm4_mes_unmap_queues *)buffer;
+ memset(buffer, 0, sizeof(struct pm4_mes_unmap_queues));
 
-	packet->header.u32All = pm_build_pm4_header(IT_UNMAP_QUEUES,
-					sizeof(struct pm4_mes_unmap_queues));
+ packet->header.u32All = pm_build_pm4_header(IT_UNMAP_QUEUES,
+     sizeof(struct pm4_mes_unmap_queues));
 
-	packet->bitfields2.extended_engine_sel = pm_use_ext_eng(pm->dqm->dev) ?
-		extended_engine_sel__mes_unmap_queues__sdma0_to_7_sel :
-		extended_engine_sel__mes_unmap_queues__legacy_engine_sel;
+ packet->bitfields2.extended_engine_sel = pm_use_ext_eng(pm->dqm->dev) ?
+  extended_engine_sel__mes_unmap_queues__sdma0_to_7_sel :
+  extended_engine_sel__mes_unmap_queues__legacy_engine_sel;
 
-	packet->bitfields2.engine_sel =
-		engine_sel__mes_unmap_queues__compute;
+ packet->bitfields2.engine_sel =
+  engine_sel__mes_unmap_queues__compute;
 
-	if (reset)
-		packet->bitfields2.action =
-			action__mes_unmap_queues__reset_queues;
-	else
-		packet->bitfields2.action =
-			action__mes_unmap_queues__preempt_queues;
+ if (reset)
+  packet->bitfields2.action =
+   action__mes_unmap_queues__reset_queues;
+ else
+  packet->bitfields2.action =
+   action__mes_unmap_queues__preempt_queues;
 
-	switch (filter) {
-	case KFD_UNMAP_QUEUES_FILTER_BY_PASID:
-		packet->bitfields2.queue_sel =
-			queue_sel__mes_unmap_queues__perform_request_on_pasid_queues;
-		packet->bitfields3a.pasid = filter_param;
-		break;
-	case KFD_UNMAP_QUEUES_FILTER_ALL_QUEUES:
-		packet->bitfields2.queue_sel =
-			queue_sel__mes_unmap_queues__unmap_all_queues;
-		break;
-	case KFD_UNMAP_QUEUES_FILTER_DYNAMIC_QUEUES:
-		/* in this case, we do not preempt static queues */
-		packet->bitfields2.queue_sel =
-			queue_sel__mes_unmap_queues__unmap_all_non_static_queues;
-		break;
-	default:
-		WARN(1, "filter %d", filter);
-		return -EINVAL;
-	}
+ switch (filter) {
+ case KFD_UNMAP_QUEUES_FILTER_BY_PASID:
+  packet->bitfields2.queue_sel =
+   queue_sel__mes_unmap_queues__perform_request_on_pasid_queues;
+  packet->bitfields3a.pasid = filter_param;
+  break;
+ case KFD_UNMAP_QUEUES_FILTER_ALL_QUEUES:
+  packet->bitfields2.queue_sel =
+   queue_sel__mes_unmap_queues__unmap_all_queues;
+  break;
+ case KFD_UNMAP_QUEUES_FILTER_DYNAMIC_QUEUES:
+  /* in this case, we do not preempt static queues */
+  packet->bitfields2.queue_sel =
+   queue_sel__mes_unmap_queues__unmap_all_non_static_queues;
+  break;
+ default:
+  WARN(1, "filter %d", filter);
+  return -EINVAL;
+ }
 
-	return 0;
+ return 0;
 }
 
 static int pm_query_status_v9(struct packet_manager *pm, uint32_t *buffer,
-			uint64_t fence_address,	uint64_t fence_value)
+   uint64_t fence_address, uint64_t fence_value)
 {
-	struct pm4_mes_query_status *packet;
+ struct pm4_mes_query_status *packet;
 
-	packet = (struct pm4_mes_query_status *)buffer;
-	memset(buffer, 0, sizeof(struct pm4_mes_query_status));
+ packet = (struct pm4_mes_query_status *)buffer;
+ memset(buffer, 0, sizeof(struct pm4_mes_query_status));
 
 
-	packet->header.u32All = pm_build_pm4_header(IT_QUERY_STATUS,
-					sizeof(struct pm4_mes_query_status));
+ packet->header.u32All = pm_build_pm4_header(IT_QUERY_STATUS,
+     sizeof(struct pm4_mes_query_status));
 
-	packet->bitfields2.context_id = 0;
-	packet->bitfields2.interrupt_sel =
-			interrupt_sel__mes_query_status__completion_status;
-	packet->bitfields2.command =
-			command__mes_query_status__fence_only_after_write_ack;
+ packet->bitfields2.context_id = 0;
+ packet->bitfields2.interrupt_sel =
+   interrupt_sel__mes_query_status__completion_status;
+ packet->bitfields2.command =
+   command__mes_query_status__fence_only_after_write_ack;
 
-	packet->addr_hi = upper_32_bits((uint64_t)fence_address);
-	packet->addr_lo = lower_32_bits((uint64_t)fence_address);
-	packet->data_hi = upper_32_bits((uint64_t)fence_value);
-	packet->data_lo = lower_32_bits((uint64_t)fence_value);
+ packet->addr_hi = upper_32_bits((uint64_t)fence_address);
+ packet->addr_lo = lower_32_bits((uint64_t)fence_address);
+ packet->data_hi = upper_32_bits((uint64_t)fence_value);
+ packet->data_lo = lower_32_bits((uint64_t)fence_value);
 
-	return 0;
+ return 0;
 }
 
 ```
