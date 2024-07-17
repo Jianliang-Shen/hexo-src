@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Confidential Compute
+title: Hopper Confidential Compute
 date: 2024-04-04 10:26:14
 index_img: /img/post_pics/HCC/7.png
 tags: 
@@ -83,6 +83,12 @@ NV GPU CC mode的关键技术：
 机密计算常用术语：[Common-Terminology-for-Confidential-Computing.pdf (confidentialcomputing.io)](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/Common-Terminology-for-Confidential-Computing.pdf)
 白皮书：[HCC-Whitepaper-v1.0.pdf (nvidia.cn)](https://images.nvidia.cn/aem-dam/en-zz/Solutions/data-center/HCC-Whitepaper-v1.0.pdf)
 免费试用：[Confidential Computing | NVIDIA](https://www.nvidia.com/en-sg/data-center/solutions/confidential-computing/)
+部署guide：
+[NVIDIA Trusted Computing Solutions](https://docs.nvidia.com/nvtrust/index.html#guides)
+[Confidential Computing Deployment Guide - (Intel TDX & KVM)](https://docs.nvidia.com/cc-deployment-guide-tdx.pdf)
+[Confidential Computing Deployment Guide - (AMD SEV-SNP & KVM)](https://docs.nvidia.com/cc-deployment-guide-snp.pdf)
+[nvtrust](https://github.com/nvidia/nvtrust)
+[NVIDIA Hopper Confidential Computing Attestation Documentation](https://docs.attestation.nvidia.com/Intro/Introduction.html)
 
 机密计算优势：
 

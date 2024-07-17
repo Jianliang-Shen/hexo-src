@@ -3,8 +3,15 @@ layout: post
 title: HCC driver code
 date: 2024-07-02 14:43:10
 tags:
+    - TEE
+    - GPU
+categories: 
+    - 安全
 ---
 
+Hopper GPU驱动代码CC部分分析。
+
+<!-- more -->
 
 ## 概述
 

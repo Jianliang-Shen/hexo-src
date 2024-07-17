@@ -1,7 +1,7 @@
 ---
 layout: post
-title:  GPU Computing Startup
-date: 2024-06-24 23:46:14
+title: GPU Computing Startup
+date: 3024-06-24 23:46:14
 index_img: /img/post_pics/ai/AGI.jpeg
 tags:
     - 算法
