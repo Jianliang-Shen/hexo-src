@@ -19,6 +19,7 @@ categories:
 
 原文：[Information security techniques-General framework for confidential computing](https://www.tc260.org.cn/file/2023-04-28/e9d12373-73ee-47e9-9ca0-8bddd02f27f0.pdf)
 
+<iframe src="https://www.tc260.org.cn/file/2023-04-28/e9d12373-73ee-47e9-9ca0-8bddd02f27f0.pdf" width="100%" height="1000" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
 
 ## 目录
 
