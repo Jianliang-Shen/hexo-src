@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Hopper Confidential Compute
+title: "机密计算: Hopper Confidential Compute"
 date: 2024-04-04 10:26:14
 index_img: /img/post_pics/HCC/7.png
 tags: 

@@ -105,12 +105,14 @@ categories:
 | [**CUDA-Programming-Guide-in-Chinese<br />★**](https://github.com/HeKun-NVIDIA/CUDA-Programming-Guide-in-Chinese)| 本项目为 CUDA C Programming Guide 的中文翻译版。|
 | [NN-CUDA-Example<br />★](https://github.com/godweiyang/NN-CUDA-Example)|调用自定义 CUDA 运算符的神经网络工具包（PyTorch、TensorFlow 等）的几个简单示例。 |
 | [NVTrust<br />★](https://github.com/NVIDIA/nvtrust)|nvTrust 是一个存储库，其中包含在受信任的环境（例如机密计算）中使用 NVIDIA 解决方案时利用的许多实用程序和工具、开源代码和 SDK。 |
+| [LLM Guard](https://github.com/protectai/llm-guard) | LLM 交互的安全工具包 |
 | [ROCm/ROCT-Thunk-Interface<br />★](https://github.com/ROCm/ROCT-Thunk-Interface)|此存储库包含用于与 (AMD)ROCk 驱动程序交互的用户模式 ​​API 接口。 |
 | **3. 免费资源** | |
 | [**GitHub中文开源仓库排行榜<br />★★★★★**](https://github.com/GrowingGit/GitHub-Chinese-Top-Charts)| GitHub中文排行榜，帮助你发现优秀中文项目，可以无语言障碍地、更高效地吸收优秀经验成果 |
 | [**free-programming-books<br />★★★★★**](https://github.com/EbookFoundation/free-programming-books)| 多种语言的免费学习资源列表 |
 | [CS EBook<br />★★★](https://github.com/forthespada/CS-Books)| 超过1000本的计算机经典书籍分享，解压密码：a123654 |
 | [CS EBook<br />★★★](https://github.com/lining808/CS-Ebook) | 本储存库是一些高质量的计算机科学与技术书籍推荐书单，需要学习的可以按照此书单进行学习进阶，包含了计算机大多数软件相关方向。而且敢承诺一直更新。 |
+| [zhoucz97/myLearning](https://github.com/zhoucz97/myLearning) | 记录个人的学习历程。包括但不限于算法、机器学习、论文写作等。 |
 
 </details>
 
