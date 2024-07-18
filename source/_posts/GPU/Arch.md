@@ -23,6 +23,15 @@ NV GPU架构介绍和演化过程。
 [英伟达 GPU 十年架构演进史](https://cloud.tencent.com/developer/article/1891497)
 [英伟达 GPU 架构简史](https://blog.csdn.net/kunhe0512/article/details/126247243)
 
+白皮书汇总：
+
+[Fermi](/pdf/NVIDIA_Fermi_Compute_Architecture_Whitepaper.pdf)
+[Volta](/pdf/volta-architecture-whitepaper.pdf)
+[Turing](/pdf/NVIDIA-Turing-Architecture-Whitepaper.pdf)
+[Ampere](/pdf/nvidia-ampere-architecture-whitepaper.pdf)
+[Hopper](/pdf/NVIDIA-H100-GPU-Architecture-Whitepaper-zhCN.pdf)
+[Blackwell](/pdf/NVIDIA-Blackwell-Architecture-Technical-Overview.pdf)
+
 ## 目录
 
 - [目录](#目录)
@@ -224,9 +233,7 @@ CUDA Core 专门处理图形工作负载，Tensor Core 更擅长处理数字工�
 
 ### Fermi 架构
 
-<!-- [Fermi架构白皮书](https://www.nvidia.com/content/PDF/fermi_white_papers/NVIDIA_Fermi_Compute_Architecture_Whitepaper.pdf) -->
-
-<iframe src="https://www.nvidia.com/content/PDF/fermi_white_papers/NVIDIA_Fermi_Compute_Architecture_Whitepaper.pdf" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[白皮书](/pdf/NVIDIA_Fermi_Compute_Architecture_Whitepaper.pdf)
 
 Fermi 是 Nvidia 在 2010 年发布的架构，引入了很多今天也仍然不过时的概念。英伟达第一个采用 GPU-Direct 技术的 GPU 架构，它拥有 32 个 SM（流多处理器）和 16 个 PolyMorph Engine 阵列。该架构采用了 4 颗芯片的模块化设计，拥有 32 个光栅化处理单元和 16 个纹理单元，搭配 GDDR5 显存。
 
@@ -267,8 +274,6 @@ SM 内还有 16 个 LD/ST 单元，也就是 Load/Store 单元，支持 16 个�
 ### Maxwell架构
 
 [2014 Maxwell架构白皮书](https://developer.nvidia.com/maxwell-compute-architecture)
-
-<!-- <iframe src="https://developer.nvidia.com/maxwell-compute-architecture" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe> -->
 
 ![](/img/post_pics/gpu/arch/12.png)
 
@@ -328,9 +333,7 @@ Tesla微观架构总览图如上。下面将阐述它的特性和概念：
 
 ### Volta 架构
 
-<!-- [Volta白皮书](https://images.nvidia.cn/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf) -->
-
-<iframe src="https://images.nvidia.cn/content/volta-architecture/pdf/volta-architecture-whitepaper.pdf" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[白皮书](/pdf/volta-architecture-whitepaper.pdf)
 
 ![](/img/post_pics/gpu/arch/14.png)
 
@@ -343,9 +346,7 @@ Tesla微观架构总览图如上。下面将阐述它的特性和概念：
 
 ### Turing架构
 
-<!-- [2018Turing架构白皮书](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf) -->
-
-<iframe src="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/technologies/turing-architecture/NVIDIA-Turing-Architecture-Whitepaper.pdf" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[白皮书](/pdf/NVIDIA-Turing-Architecture-Whitepaper.pdf)
 
 ![](/img/post_pics/gpu/arch/15.png)
 
@@ -363,9 +364,7 @@ Turing架构采用全新SM设计，每个TPC均包含两个SM，每个SM共有64
 
 ### Ampere 架构
 
-<!-- [Ampere架构白皮书](https://images.nvidia.cn/aem-dam/en-zz/Solutions/data-center/nvidia-ampere-architecture-whitepaper.pdf) -->
-
-<iframe src="https://images.nvidia.cn/aem-dam/en-zz/Solutions/data-center/nvidia-ampere-architecture-whitepaper.pdf" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[白皮书](/pdf/nvidia-ampere-architecture-whitepaper.pdf)
 
 代表产品为 GeForce RTX 30 系列。该架构继续优化并行计算能力，并引入了更先进的 GDDR6X 内存技术，大幅提高了内存带宽和性能。相比 Turing 架构，Ampere 架构中的 SM 在 Turing 基础上增加了一倍的 FP32 运算单元，这使得每个 SM 的 FP32 运算单元数量提高了一倍，同时吞吐量也就变为了一倍。此外，安培架构还改进了着色器性能和张量核（Tensor Cores），进一步加速深度学习和人工智能任务的处理速度。
 
@@ -397,10 +396,7 @@ NVIDIA A100基于7nm Ampere GA100 GPU，具有6912 CUDA内核和432 Tensor Core�
 
 ![](/img/post_pics/gpu/arch/18.png)
 
-[Hopper架构白皮书](https://resources.nvidia.com/en-us-tensor-core?ncid=no-ncid)
-<!-- [Hopper中文架构白皮书](https://resources.nvidia.com/cn-hopper-architecture?ncid=no-ncid) -->
-
-<iframe src="https://resources.nvidia.com/cn-hopper-architecture?ncid=no-ncid" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[H100 中文白皮书](/pdf/NVIDIA-H100-GPU-Architecture-Whitepaper-zhCN.pdf)
 
 作为面向专业计算的GPU，H100采用HBM3高带宽显存，NVIDIA将六颗HBM3高带宽显存堆栈在核心两侧。核心内建5120-bit的HBM3显存位宽，英伟达可配置最高80GB显存，SXM5版（HBM3显存）带宽更是达到3TB/s，PCIe版本（HBM2e）则是2TB/s。
 
@@ -413,6 +409,6 @@ H100的主机接口同样迎来升级，SXM外形的PCB板配备新一代NVLink�
 ### Blackwell 架构
 
 [Blackwell 架构](https://www.nvidia.cn/data-center/technologies/blackwell-architecture/)
-<!-- [白皮书](https://resources.nvidia.com/en-us-blackwell-architecture?ncid=no-ncid) -->
+[白皮书](https://resources.nvidia.com/en-us-blackwell-architecture?ncid=no-ncid)
 
-<iframe src="https://resources.nvidia.com/en-us-blackwell-architecture?ncid=no-ncid" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[NVIDIA Blackwell Architecture Technical Overview](/pdf/NVIDIA-Blackwell-Architecture-Technical-Overview.pdf)

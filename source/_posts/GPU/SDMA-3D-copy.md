@@ -22,7 +22,7 @@ GPU MEM3DCPY是怎么实现的。
 ## 定义
 
 
-这个操作主要依靠 SDAMA Linear Sub-Window Copy。该命令用于在两个具有不同大小和起始点(应该是相同元素大小)的表面之间执行子窗口复制。
+这个操作主要依靠 SDMA Linear Sub-Window Copy。该命令用于在两个具有不同大小和起始点(应该是相同元素大小)的表面之间执行子窗口复制。
 
 ![](/img/post_pics/gpu/sdma/0.png)
 ![](/img/post_pics/gpu/sdma/0-1.png)

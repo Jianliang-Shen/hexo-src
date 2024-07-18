@@ -12,7 +12,7 @@ categories:
     - GPU
 ---
 
-人类无法预知未来，但可以亡羊补牢。
+GPU, Compute and AI.
 
 <!-- more -->
 
@@ -48,16 +48,25 @@ categories:
 | [Pytorch Examples](https://github.com/pytorch/examples)| 围绕 pytorch 的视觉、文本、强化学习等方面的一组示例。 |
 | [Pytorch 源码仓库](https://github.com/pytorch/pytorch)| 具有强大 GPU 加速的 Python 张量和动态神经网络。 |
 
-<iframe src="https://pytorch.org/tutorials/beginner/basics/intro.html" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
-
 ### Cuda
 
 [CUDA 官方文档](https://docs.nvidia.com/cuda/)
+[CUDA Runtime API](https://docs.nvidia.com/cuda/cuda-runtime-api/index.html)
+[CUDA Samples](https://github.com/NVIDIA/cuda-samples)
+
+<details>
+<summary>点击查看CUDA文档</summary>
 
 <iframe src="https://docs.nvidia.com/cuda/" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
 
-[CUDA Runtime API](https://docs.nvidia.com/cuda/cuda-runtime-api/index.html)
-[CUDA Samples](https://github.com/NVIDIA/cuda-samples)
+</details>
+
+<details>
+<summary>点击查看PyTorch文档</summary>
+
+<iframe src="https://pytorch.org/tutorials/beginner/basics/intro.html" width="100%" height="800" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+
+</details>
 
 ### Jetson 嵌入式AI
 

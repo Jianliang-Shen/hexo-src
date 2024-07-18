@@ -9,7 +9,7 @@ categories:
     - 安全
 ---
 
-[AMD SEV-SNP：通过完整性保护等增强虚拟机隔离](https://www.amd.com/content/dam/amd/en/documents/epyc-business-docs/white-papers/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf)
+[AMD SEV-SNP：通过完整性保护等增强虚拟机隔离](/pdf/SEV-SNP-strengthening-vm-isolation-with-integrity-protection-and-more.pdf)
 
 <!-- more -->
 

@@ -49,7 +49,7 @@ categories:
 
 ### 威胁模型
 
-参考：[](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/CCC-A-Technical-Analysis-of-Confidential-Computing-v1.3_unlocked.pdf)
+参考：[A Technical Analysis of Confidential Computing v1.3](https://confidentialcomputing.io/wp-content/uploads/sites/10/2023/03/CCC-A-Technical-Analysis-of-Confidential-Computing-v1.3_unlocked.pdf)
 以下威胁向量通常被视为机密计算的范围：
 
 - 软件攻击：包括对主机软件和固件的攻击。这可能包括操作系统、管理程序、BIOS、其他软件和工作负载。
@@ -216,4 +216,4 @@ TEE 提供了隐私保护和数据安全防护功能的创新解决方案，将�
 
 ### 大模型可信赖研究报告
 
-<iframe src="/pdf/2023大模型可信赖研究报告.pdf" width="100%" height="1000" name="topFrame" scrolling="yes"  noresize="noresize" frameborder="0" id="topFrame"></iframe>
+[2023大模型可信赖研究报告](/pdf/2023大模型可信赖研究报告.pdf)
